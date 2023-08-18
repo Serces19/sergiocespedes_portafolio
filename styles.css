@@ -1,0 +1,77 @@
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif; /* Cambia 'Montserrat' por la fuente que quieras */
+    background-color: #d4d4d4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    background-color: #00000023;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Sección de héroe */
+#hero {
+    background-image: url('/recursos/foto.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 150px 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4c5b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Secciones */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* Tipografía */
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+
+/* Otros estilos según tus preferencias */
+

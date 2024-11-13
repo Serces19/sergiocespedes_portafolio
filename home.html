@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Sergio Cespedes - Pipeline TD</title>
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="nav-item">
+          <img src="/static/img/Sergio_Cespedes_small.png" alt="Global">
+        </div>
+
+        <div class="nav-item">
+            <span class="nav-number">01</span>
+            <a href="#home" class="nav-text">Home</a>
+        </div>
+        <div class="nav-item">
+            <span class="nav-number">02</span>
+            <a href="#projects" class="nav-text">Projects</a>
+        </div>
+        <div class="nav-item">
+            <span class="nav-number">03</span>
+            <a href="#contact" class="nav-text">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content animate-fade-in">
+            <h1 class="title">Sergio Cespedes<br>Pipeline TD</h1>
+            <a href="/articles" class="cta-button">
+                SEE MY TOOLS
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <img src="/static/img/abstract.jpg" alt="Sergio Cespedes" class="hero-image animate-fade-in">
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="project-card animate-fade-in">
+            <h3 class="project-title">Cloud Infraestructure</h3>
+            <p class="project-description">Development of scalable solutions and integration of cutting-edge technologies for VFX pipelines..</p>
+        </div>
+        <div class="project-card animate-fade-in">
+            <h3 class="project-title">Pipeline Software Solutions</h3>
+            <p class="project-description">VFX techniques implementation with Blender and After Effects in creative advertising projects.</p>
+        </div>
+        <div class="project-card animate-fade-in">
+            <h3 class="project-title">Render Farm</h3>
+            <p class="project-description">Building studio pipeline, implementing local rendering system with Deadline and developing cloud system for ML tasks.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="project-card animate-fade-in">
+            <h3 class="project-title">TD Reel</h3>
+            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/834590547?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Compo TD Reel Sergio Cespedes"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        </div> 
+        <div class="project-card animate-fade-in">
+            <h3 class="project-title">Compositing Reel</h3>
+            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/727935050?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Compositing Reel Sergio Cespedes 2024"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        </div>
+    </section>
+
+
+</body>
+</html>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+document.querySelectorAll('.animate-fade-in').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    observer.observe(element);
+});
+
+// Smooth scroll for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>

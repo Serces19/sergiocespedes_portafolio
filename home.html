@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Sergio Cespedes - Pipeline TD</title>
+    <link rel="icon" href="assets/Logo scope.png" type="image/x-icon">
 </head>
 
 <body>
     <nav class="navigation">
         <div class="nav-item">
         <a href="/home">
-          <img src="assets/Sergio_Cespedes_small.png" alt="Global">
+          <img src="assets/Sergio_Cespedes_small.png" alt="Global" class="hover-image">
         </a>
         </div>
 
@@ -29,8 +30,8 @@
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content animate-fade-in">
+    <!-- <section id="home" class="hero">
+        <div class="hero-content animate-fade-in" class="video-background">
             <h1 class="title">Sergio Cespedes</h1>
             <h2 translate="no" class="subtitle">Pipeline TD</h2>
             <a href="/articles.html" class="cta-button">
@@ -40,9 +41,32 @@
                 </svg>
             </a>
         </div>
-        <!-- <img src="assets/abstract.jpg" alt="Sergio Cespedes" class="hero-image animate-fade-in"> -->
-    </section>
+    </section> -->
 
+
+
+
+    
+    <section id="home" class="hero">
+        <video autoplay muted loop id="background-video">
+            <source src="assets/TD_reel.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="hero-content animate-fade-in">
+            
+            <h1 class="title">Sergio Cespedes</h1>
+            <h2 translate="no" class="subtitle">Pipeline TD</h2>
+            <a href="/articles.html" class="cta-button">
+                See tools
+                <svg width="30" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+    
+
+    
     <section id="projects" class="projects">
         <div class="project-card animate-fade-in">
             <h3 class="project-title">Cloud Infraestructure</h3>

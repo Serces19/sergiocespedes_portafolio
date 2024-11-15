@@ -23,19 +23,19 @@ body {
 .blog-header h1 {
     font-size: 3em;
     margin: 0;
-    line-height: 0.5;
+    line-height: 1;
 }
 
 .subtitle {
     font-size: 2em;
     color: #ccc;
-    line-height: 0.5;
+    line-height: 1;
 }
 
 .meta {
     font-size: 0.9em;
     color: #bbb;
-    line-height: 5;
+    line-height: 0.8;
 }
 
 .blog-content {

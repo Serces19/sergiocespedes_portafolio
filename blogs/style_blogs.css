@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b1b;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 4em;
+}
+
+.blog-header {
+    background: linear-gradient(to right, #1b1b1b, rgba(0, 102, 255, 0.1));
+    color: #fff;
+    padding: 40px 0;
+    text-align: left;
+}
+
+.blog-header h1 {
+    font-size: 3em;
+    margin: 0;
+    line-height: 0.5;
+}
+
+.subtitle {
+    font-size: 2em;
+    color: #ccc;
+    line-height: 0.5;
+}
+
+.meta {
+    font-size: 0.9em;
+    color: #bbb;
+    line-height: 5;
+}
+
+.blog-content {
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.blog-content h2 {
+    color: #e8e8e8;
+    margin-top: 1.5em;
+}
+
+blockquote {
+    border-left: 5px solid #333;
+    padding-left: 15px;
+    color: #c5c5c5;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.blog-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+.blog-footer a {
+    color: #555;
+    text-decoration: none;
+}
+
+.blog-footer a:hover {
+    text-decoration: underline;
+}
+
+.blog-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}

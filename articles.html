@@ -5,194 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sergio Cespedes - Projects & Tools</title>
     <link rel="icon" href="assets/logo_scope.png" type="image/x-icon">
-    <style>
-        :root {
-            --primary-color: #ffffff;
-            --background-color: #1b1b1b;
-            --accent-color: #dd284c;
-            --text-secondary: #888888;
-            --card-background: rgba(255, 255, 255, 0.05);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-
-        body {
-            background-color: var(--background-color);
-            color: var(--primary-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .navigation {
-            position: fixed;
-            left: 2rem;
-            top: 12%;
-            transform: translateY(-50%);
-            z-index: 100;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            margin: 1rem 0;
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-item:hover {
-            opacity: 1;
-        }
-
-        .nav-number {
-            font-size: 0.8rem;
-            margin-right: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .nav-text {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .header {
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            padding: 0 16%;
-            background: linear-gradient(to right, var(--background-color), rgba(0, 102, 255, 0.1));
-        }
-
-        .header-content {
-            width: 100%;
-        }
-
-        .title {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            max-width: 600px;
-        }
-
-        .blog-grid {
-            padding: 5rem 16%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .blog-card {
-            background-color: var(--card-background);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .blog-content {
-            padding: 2rem;
-        }
-
-        .blog-tag {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 0.3rem 1rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .blog-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .blog-excerpt {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-        }
-
-        .blog-link svg {
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .blog-link:hover svg {
-            transform: translateX(5px);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @media (max-width: 768px) {
-            .navigation {
-                display: none;
-            }
-
-            .header {
-                padding: 0 5%;
-                text-align: center;
-            }
-
-            .title {
-                font-size: 3rem;
-            }
-
-            .blog-grid {
-                padding: 3rem 5%;
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <nav class="navigation">
-        <div class="nav-item">
-            <a href="/home">
-                <img src="assets/Sergio_Cespedes_small.png" alt="Global">
-            </a>
-        </div>
-    </nav>
+    <script id="replace_with_navbar"></script>
 
     <header class="header">
         <div class="header-content animate-fade-in">
@@ -208,7 +24,7 @@
                 <!-- <span class="blog-tag">Pipeline</span> -->
                 <h2 class="blog-title">Setting Up Deadline Render Farm</h2>
                 <p class="blog-excerpt">A comprehensive guide to implementing and configuring Deadline for optimal rendering performance in a VFX pipeline</p>
-                <a href="blogs/blog_deadline_cloud.html" class="blog-link">
+                <a href="blogs/blog_template.html?post=blog_deadline_cloud" class="blog-link">
                     Read More
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -223,7 +39,7 @@
                 <!-- <span class="blog-tag">Cloud</span> -->
                 <h2 class="blog-title">Cloud Infrastructure for ML Tasks</h2>
                 <p class="blog-excerpt">Exploring scalable cloud solutions for machine learning tasks in VFX production environments</p>
-                <a href="blogs/blog_studio_cloud.html" class="blog-link">
+                <a href="blogs/blog_template.html?post=blog_studio_cloud" class="blog-link">
                     Read More
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -238,7 +54,7 @@
                 <!-- <span class="blog-tag">Development</span> -->
                 <h2 class="blog-title">Building with Ayon (OpenPype)</h2>
                 <p class="blog-excerpt">Deep dive into pipeline development using Ayon, formerly known as OpenPype, for efficient asset management</p>
-                <a href="blogs/blog_ayon.html" class="blog-link">
+                <a href="blogs/blog_template.html?post=blog_ayon" class="blog-link">
                     Read More
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -253,7 +69,7 @@
                 <!-- <span class="blog-tag">System</span> -->
                 <h2 class="blog-title">Linux Environment Setup</h2>
                 <p class="blog-excerpt">Essential guide to configuring a Linux environment for VFX pipeline development and production</p>
-                <a href="blogs/blog_linux.html" class="blog-link">
+                <a href="blogs/blog_template.html?post=blog_linux" class="blog-link">
                     Read More
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -272,7 +88,7 @@
                 <!-- <span class="blog-tag">Pipeline</span> -->
                 <h2 class="blog-title">Render All!</h2>
                 <p class="blog-excerpt">Open source desktop app to render in local</p>
-                <a href="blogs/render_all.html" class="blog-link">
+                <a href="blogs/blog_template.html?post=render_all" class="blog-link">
                     Read More
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -287,7 +103,7 @@
                 <!-- <span class="blog-tag">Cloud</span> -->
                 <h2 class="blog-title">Telegram Notify</h2>
                 <p class="blog-excerpt">Easy way to get notifications of your renders</p>
-                <a href="blogs/telegram_notify.html" class="blog-link">
+                <a href="blogs/blog_template.html?post=telegram_notify" class="blog-link">
                     Read More
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -302,7 +118,7 @@
                 <!-- <span class="blog-tag">Development</span> -->
                 <h2 class="blog-title">Shot Tracker and Pipeline</h2>
                 <p class="blog-excerpt">Artist friendly pipeline to work in comp tasks</p>
-                <a href="blogs/atom_app.html" class="blog-link">
+                <a href="blogs/blog_template.html?post=atom_app" class="blog-link">
                     Read More
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -315,24 +131,5 @@
 
 
 
-    <script>
-        // Intersection Observer for fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.animate-fade-in').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            observer.observe(element);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-</html>

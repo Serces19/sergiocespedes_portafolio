@@ -9,52 +9,15 @@
 </head>
 
 <body>
-    <nav class="navigation">
-        <div class="nav-item">
-        <a href="/home">
-          <img src="assets/Sergio_Cespedes_small.png" alt="Global" class="hover-image">
-        </a>
-        </div>
+    <script id="replace_with_navbar"></script>
 
-        <div class="nav-item">
-            <span class="nav-number">01</span>
-            <a href="#projects" class="nav-text">Services</a>
-        </div>
-        <div class="nav-item">
-            <span class="nav-number">02</span>
-            <a href="#contact" class="nav-text">Contact</a>
-        </div>
-        <div class="nav-item">
-            <span class="nav-number">03</span>
-            <a href="/articles" class="nav-text">Projects - Tools</a>
-        </div>
-    </nav>
-
-    <!-- <section id="home" class="hero">
-        <div class="hero-content animate-fade-in" class="video-background">
-            <h1 class="title">Sergio Cespedes</h1>
-            <h2 translate="no" class="subtitle">Pipeline TD</h2>
-            <a href="/articles.html" class="cta-button">
-                SEE MY TOOLS
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-    </section> -->
-
-
-    
     <section id="home" class="hero">
-        <video autoplay muted loop id="background-video">
-            <source src="assets/Master_Pipeline_edit.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
+        <img src="assets/Sergio_Cespedes_small.png" alt="Sergio Cespedes" class="hero-profile-image animate-fade-in">
         <div class="hero-content animate-fade-in">
             
             <h1 class="title">Sergio Cespedes</h1>
             <h2 translate="no" class="subtitle">Pipeline TD</h2>
-            <a href="/articles" class="cta-button">
+            <a href="articles.html" class="cta-button">
                 See my tools
                 <svg width="30" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -80,7 +43,7 @@
         </div>
     </section>
 
-    <section id="projects" class="projects">
+    <section id="reels" class="projects">
         <div class="project-card animate-fade-in">
             <h3 class="project-title">TD Reel</h3>
             <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/834590547?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Compo TD Reel Sergio Cespedes"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
@@ -94,7 +57,7 @@
 
 
 
-    <section id="contact" class="contact">
+    <section id="about" class="contact">
         <div class="about-content animate-fade-in">
             <h2 class="section-title">About Me</h2>
             <p class="about-description">
@@ -121,34 +84,5 @@
         </div>
     </section>
 
+    <script src="script.js"></script>
 </body>
-</html>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-document.querySelectorAll('.animate-fade-in').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    observer.observe(element);
-});
-
-// Smooth scroll for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-</script>

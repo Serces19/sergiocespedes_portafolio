@@ -1,15 +1,35 @@
+/* ------------------------------------ */
+/* 1. Variables                         */
+/* ------------------------------------ */
 :root {
     --primary-color: #ffffff;
     --background-color: #1b1b1b;
     --accent-color: #dd284c;
     --text-secondary: #888888;
+    --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-blog: Arial, sans-serif; /* Specific for blog content if needed, otherwise use base */
+
+    /* New color variables for better centralization */
+    --gradient-dark-end-rgb: 10, 26, 49;
+    --gradient-blue-end-rgb: 0, 102, 255;
+    --card-background-rgb: 255, 255, 255;
+    --light-text-color: #ccc;
+    --lighter-text-color: #bbb;
+    --heading-color-blog: #e8e8e8;
+    --border-color-dark: #333;
+    --blockquote-text-color: #c5c5c5;
+    --footer-text-color: #777;
+    --footer-link-color: #555;
 }
 
+/* ------------------------------------ */
+/* 2. Base Styles & Resets              */
+/* ------------------------------------ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: var(--font-family-base);
 }
 
 body {
@@ -19,86 +39,13 @@ body {
     overflow-x: hidden;
 }
 
-/* .hover-image {
-    width: 100%;
-    transition: opacity 1s ease;
-}
-
-.hover-image:hover {
-    content: url('assets/logo_scope.png');
-} */
-
-.navigation {
-    position: fixed;
-    left: 1.5rem;
-    top: 12%;
-    transform: translateY(-50%);
-    z-index: 100;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    margin: 0.5rem 0;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.nav-item:hover {
-    opacity: 1;
-}
-
-
-.nav-number {
-    font-size: 0.8rem;
-    margin-right: 1rem;
-    color: var(--text-secondary);
-}
-
-.nav-text {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 10% 16%;
-    /* background: url('https://images.pexels.com/photos/9695084/pexels-photo-9695084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center fixed; */
-    background: linear-gradient(to right, var(--background-color), rgba(10, 26, 49, 0.9));
-    background-size: cover;
-}
-
-
-#background-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    background-size: cover;
-}
-
-
-.title {
-    left: 10vh;
-    font-size: 5rem;
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: 2rem;
-}
-
-.subtitle {
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 1;
-    margin-bottom: 2rem;
+/* ------------------------------------ */
+/* 3. Layout & General Components       */
+/* ------------------------------------ */
+.container { /* Used in blog_template.html */
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 4em;
 }
 
 .cta-button {
@@ -122,32 +69,83 @@ body {
     margin-left: 0.5rem;
 }
 
-.contact {
-    padding: 5rem 16%;
-    display: block;
+/* ------------------------------------ */
+/* 4. Navigation                        */
+/* ------------------------------------ */
+.navigation {
+    position: fixed;
+    left: 1.5rem;
+    top: 12%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
     align-items: center;
-    gap: 2rem;
-    background: linear-gradient(to right, var(--background-color), rgba(0, 102, 255, 0.1));
-    background-size: cover;
+    margin: 0.5rem 0;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.nav-item:hover {
+    opacity: 1;
+}
+
+.nav-number {
+    font-size: 0.8rem;
+    margin-right: 1rem;
+    color: var(--text-secondary);
+}
+
+.nav-text {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* ------------------------------------ */
+/* 5. Hero Section (Home Page)          */
+/* ------------------------------------ */
+.hero {
     position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Added for vertical alignment */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding: 10% 16%;
+    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-dark-end-rgb), 0.9));
+    background-size: cover;
 }
 
-.about-content {
-    background-color: rgba(255, 255, 255, 0.02);
-    padding: 2rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+.hero-profile-image {
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover;
+    margin-bottom: 2rem; /* Space between image and text */
+    border: 3px solid var(--accent-color); /* Optional: add a border */
 }
 
-.contact-content {
-    background-color: rgba(255, 255, 255, 0.02);
-    padding: 2rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    align-items: center;
-    margin: 1rem 0;
+.title {
+    font-size: 5rem;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
+.subtitle {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* ------------------------------------ */
+/* 6. Projects Section                  */
+/* ------------------------------------ */
 .projects {
     padding: 5rem 16%;
     display: grid;
@@ -156,7 +154,7 @@ body {
 }
 
 .project-card {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(var(--card-background-rgb), 0.05);
     padding: 2rem;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -175,6 +173,158 @@ body {
     color: var(--text-secondary);
 }
 
+/* ------------------------------------ */
+/* 7. Contact & About Sections          */
+/* ------------------------------------ */
+.contact {
+    padding: 5rem 16%;
+    display: block;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-blue-end-rgb), 0.1));
+    background-size: cover;
+    position: relative;
+}
+
+.about-content,
+.contact-content { /* Consolidated styles */
+    background-color: rgba(var(--card-background-rgb), 0.02);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.contact-content {
+    align-items: center;
+    margin: 1rem 0;
+}
+
+/* ------------------------------------ */
+/* 8. Blog/Articles Page Specific       */
+/* ------------------------------------ */
+.header { /* Used in articles.html */
+    position: relative;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    padding: 5% 16%;
+    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-dark-end-rgb), 0.9));
+    background-size: cover;
+}
+
+.blog-grid { /* Used in articles.html */
+    padding: 5rem 16%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.blog-card { /* Used in articles.html */
+    background-color: rgba(var(--card-background-rgb), 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover { /* Used in articles.html */
+    transform: translateY(-10px);
+}
+
+.blog-image { /* Used in articles.html and blog content */
+    width: 100%;
+    height: 200px; /* Added height for consistency */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; /* Added border-radius for consistency */
+}
+
+.blog-content { /* Used in articles.html and blog content */
+    padding: 1.5rem; /* Adjusted padding for consistency */
+}
+
+.blog-title { /* Used in articles.html */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-excerpt { /* Used in articles.html */
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.blog-link { /* Used in articles.html */
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.blog-link svg {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.blog-link:hover svg {
+    transform: translateX(5px);
+}
+
+/* Blog Post Content (from blog_template.html and old style_blogs.css) */
+.blog-header {
+    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-blue-end-rgb), 0.1));
+    color: var(--primary-color); /* Changed from #fff to var(--primary-color) */
+    padding: 40px 0;
+    text-align: left;
+}
+
+.blog-header h1 {
+    font-size: 3em;
+    margin: 0;
+    line-height: 1;
+}
+
+.blog-header .subtitle { /* Specific for blog header subtitle */
+    font-size: 2em;
+    color: var(--light-text-color); /* Using variable */
+    line-height: 1;
+}
+
+.meta {
+    font-size: 0.9em;
+    color: var(--lighter-text-color); /* Using variable */
+    line-height: 0.8;
+}
+
+.blog-content h2 {
+    color: var(--heading-color-blog); /* Using variable */
+    margin-top: 1.5em;
+}
+
+blockquote {
+    border-left: 5px solid var(--border-color-dark); /* Using variable */
+    padding-left: 15px;
+    color: var(--blockquote-text-color); /* Using variable */
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.blog-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--footer-text-color); /* Using variable */
+}
+
+.blog-footer a {
+    color: var(--footer-link-color); /* Using variable */
+    text-decoration: none;
+}
+
+.blog-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------ */
+/* 9. Animations                        */
+/* ------------------------------------ */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -190,6 +340,9 @@ body {
     animation: fadeInUp 0.6s ease forwards;
 }
 
+/* ------------------------------------ */
+/* 10. Media Queries                    */
+/* ------------------------------------ */
 @media (max-width: 768px) {
     .navigation {
         display: none;
@@ -206,7 +359,7 @@ body {
         margin-top: 20%;
     }
 
-    .hero-image {
+    .hero-image { /* This class doesn't seem to be used in home.html anymore */
         position: relative;
         width: 100%;
         margin-top: 1rem;
@@ -217,7 +370,8 @@ body {
         font-size: 3rem;
     }
 
-    .projects {
+    .projects,
+    .blog-grid { /* Consolidated for responsiveness */
         grid-template-columns: 1fr;
         padding: 3rem 5%;
     }

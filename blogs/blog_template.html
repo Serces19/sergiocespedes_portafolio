@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <script id="replace_with_navbar"></script>
+
+    <div id="blog-content" class="container"></div>
+
+    <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const post = urlParams.get('post');
+
+        if (post) {
+            fetch(`${post}.md`)
+                .then(response => response.text())
+                .then(text => {
+                    document.getElementById('blog-content').innerHTML = marked.parse(text);
+                });
+        }
+    </script>
+</body>
+</html>

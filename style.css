@@ -218,6 +218,15 @@ body {
     background-color: rgba(50, 50, 50, 0.07);
     padding: 2rem;
     border-radius: 8px;
+    width: 100%; /* Ensure card takes full width of its grid column */
+}
+
+.common-card img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 .common-content {
@@ -385,6 +394,38 @@ body {
 /* ------------------------------------ */
 /* 7. Blog/Articles Page Specific       */
 /* ------------------------------------ */
+.articles-page-header {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('assets/cloud.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+.articles-page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.articles-page-header .header-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.articles-page-header .title,
+.articles-page-header .subtitle {
+    color: white;
+}
+
 .header {
     height: 50vh;
     display: flex;
@@ -393,91 +434,15 @@ body {
     background: var(--background-color);
 }
 
-.blog-image {
+.common-card img {
     width: 100%;
-    height: 200px;
+    height: 200px; /* Fixed height for consistency */
     object-fit: cover;
-    border-radius: 8px 8px 0 0;
-}
-
-.blog-content {
-    padding: 1.5rem;
-}
-
-.blog-title {
-    font-family: var(--font-family-title);
-    font-size: 1.5rem;
+    border-radius: 8px;
     margin-bottom: 1rem;
 }
 
-.blog-excerpt {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
 
-.blog-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-}
-
-.blog-link svg {
-    margin-left: 0.5rem;
-}
-
-.blog-header {
-    background: var(--background-color);
-    color: var(--primary-color);
-    padding: 40px 0;
-    text-align: left;
-}
-
-.blog-header h1 {
-    font-family: var(--font-family-title);
-    font-size: 2em;
-    margin: 0;
-}
-
-.blog-header .subtitle {
-    font-size: 1.2em;
-    color: var(--text-secondary);
-}
-
-.meta {
-    font-size: 0.9em;
-    color: var(--text-secondary);
-}
-
-.blog-content h2 {
-    font-family: var(--font-family-title);
-    color: var(--primary-color);
-    margin-top: 1.5em;
-}
-
-blockquote {
-    border-left: 5px solid var(--text-secondary);
-    padding-left: 15px;
-    color: var(--text-secondary);
-    font-style: italic;
-    margin: 20px 0;
-}
-
-.blog-footer {
-    text-align: center;
-    margin-top: 20px;
-    color: var(--text-secondary);
-}
-
-.blog-footer a {
-    color: var(--text-secondary);
-    text-decoration: none;
-}
-
-.blog-footer a:hover {
-    text-decoration: underline;
-}
 
 /* ------------------------------------ */
 /* 8. Media Queries                     */

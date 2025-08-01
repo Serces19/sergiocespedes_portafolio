@@ -95,5 +95,5 @@
     Download Render All! today and experience the efficiency of queue-based rendering. Your feedback is invaluable in shaping 
     future updates, so feel free to report errors or suggest improvements. Let’s render better together!
 </p>
-<hr>
+---
 <p><em>Written by Sergio Cespedes.</em></p>

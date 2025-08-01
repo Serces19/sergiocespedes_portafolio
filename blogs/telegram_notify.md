@@ -72,5 +72,5 @@ import telegram_notify
         <strong>Operating System Compatibility:</strong> While primarily tested on Windows, there might be conflicts on Linux or macOS.
     </li>
 </ul>
-<hr>
+---
 <p><em>Written by Sergio Cespedes.</em></p>

@@ -62,5 +62,5 @@
     As the VFX industry evolves, tools like the Shot Control App redefine how teams collaborate and deliver high-quality work. 
     By combining modern technology with artist-friendly design, this app is paving the way for a more efficient and innovative future in visual effects.
 </p>
-<hr>
+---
 <p><em>Written by Sergio Cespedes.</em></p>

@@ -7,19 +7,6 @@
     --accent-color: #dd284c;
     --text-secondary: #888888;
     --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    --font-family-blog: Arial, sans-serif; /* Specific for blog content if needed, otherwise use base */
-
-    /* New color variables for better centralization */
-    --gradient-dark-end-rgb: 10, 26, 49;
-    --gradient-blue-end-rgb: 0, 102, 255;
-    --card-background-rgb: 255, 255, 255;
-    --light-text-color: #ccc;
-    --lighter-text-color: #bbb;
-    --heading-color-blog: #e8e8e8;
-    --border-color-dark: #333;
-    --blockquote-text-color: #c5c5c5;
-    --footer-text-color: #777;
-    --footer-link-color: #555;
 }
 
 /* ------------------------------------ */
@@ -36,16 +23,120 @@ body {
     background-color: var(--background-color);
     color: var(--primary-color);
     line-height: 1.6;
-    overflow-x: hidden;
+    padding-top: 80px;
 }
 
-/* ------------------------------------ */
-/* 3. Layout & General Components       */
-/* ------------------------------------ */
-.container { /* Used in blog_template.html */
+.container {
     max-width: 800px;
     margin: 0 auto;
     margin-top: 4em;
+}
+
+/* ------------------------------------ */
+/* 3. Navigation                        */
+/* ------------------------------------ */
+.top-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.nav-content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    gap: 1.5rem;
+}
+
+.nav-logo {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* ------------------------------------ */
+/* 4. Hero Section (Home Page)          */
+/* ------------------------------------ */
+.hero {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8% 1%;
+    background: var(--background-color);
+}
+
+.hero-profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 3px solid var(--accent-color);
+}
+
+.hero-video {
+    width: 80%;
+    max-width: 800px;
+    border-radius: 15px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ------------------------------------ */
+/* 5. Common Components                 */
+/* ------------------------------------ */
+.cta-button {
+    font-size: 1.2rem;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 1rem 1rem;
+    text-decoration: none;
+    border-radius: 10px;
 }
 
 .cta-button {
@@ -58,110 +149,30 @@ body {
     padding: 1rem 1rem;
     text-decoration: none;
     border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
+    margin-top: 2rem;
 }
 
 .cta-button svg {
     margin-left: 0.5rem;
 }
 
-/* ------------------------------------ */
-/* 4. Navigation                        */
-/* ------------------------------------ */
-.navigation {
-    position: fixed;
-    left: 1.5rem;
-    top: 12%;
-    transform: translateY(-50%);
-    z-index: 100;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    margin: 0.5rem 0;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.nav-item:hover {
-    opacity: 1;
-}
-
-.nav-number {
-    font-size: 0.8rem;
-    margin-right: 1rem;
-    color: var(--text-secondary);
-}
-
-.nav-text {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-/* ------------------------------------ */
-/* 5. Hero Section (Home Page)          */
-/* ------------------------------------ */
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column; /* Added for vertical alignment */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    padding: 10% 16%;
-    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-dark-end-rgb), 0.9));
-    background-size: cover;
-}
-
-.hero-profile-image {
-    width: 150px; /* Adjust size as needed */
-    height: 150px; /* Adjust size as needed */
-    border-radius: 50%; /* Makes it circular */
-    object-fit: cover;
-    margin-bottom: 2rem; /* Space between image and text */
-    border: 3px solid var(--accent-color); /* Optional: add a border */
-}
-
-.title {
-    font-size: 5rem;
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.subtitle {
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 1;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-/* ------------------------------------ */
-/* 6. Projects Section                  */
-/* ------------------------------------ */
-.projects {
+.common-grid {
     padding: 5rem 16%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
-.project-card {
-    background-color: rgba(var(--card-background-rgb), 0.05);
+.common-card {
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 2rem;
     border-radius: 8px;
-    transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
+.common-content {
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 2rem;
+    border-radius: 8px;
 }
 
 .project-title {
@@ -174,84 +185,49 @@ body {
 }
 
 /* ------------------------------------ */
-/* 7. Contact & About Sections          */
+/* 6. Contact & About Sections          */
 /* ------------------------------------ */
 .contact {
     padding: 5rem 16%;
     display: block;
     align-items: center;
     gap: 2rem;
-    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-blue-end-rgb), 0.1));
-    background-size: cover;
-    position: relative;
-}
-
-.about-content,
-.contact-content { /* Consolidated styles */
-    background-color: rgba(var(--card-background-rgb), 0.02);
-    padding: 2rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.contact-content {
-    align-items: center;
-    margin: 1rem 0;
+    background: var(--background-color);
 }
 
 /* ------------------------------------ */
-/* 8. Blog/Articles Page Specific       */
+/* 7. Blog/Articles Page Specific       */
 /* ------------------------------------ */
-.header { /* Used in articles.html */
-    position: relative;
+.header {
     height: 50vh;
     display: flex;
     align-items: center;
     padding: 5% 16%;
-    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-dark-end-rgb), 0.9));
-    background-size: cover;
+    background: var(--background-color);
 }
 
-.blog-grid { /* Used in articles.html */
-    padding: 5rem 16%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.blog-card { /* Used in articles.html */
-    background-color: rgba(var(--card-background-rgb), 0.05);
-    padding: 2rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.blog-card:hover { /* Used in articles.html */
-    transform: translateY(-10px);
-}
-
-.blog-image { /* Used in articles.html and blog content */
+.blog-image {
     width: 100%;
-    height: 200px; /* Added height for consistency */
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px 8px 0 0; /* Added border-radius for consistency */
+    border-radius: 8px 8px 0 0;
 }
 
-.blog-content { /* Used in articles.html and blog content */
-    padding: 1.5rem; /* Adjusted padding for consistency */
+.blog-content {
+    padding: 1.5rem;
 }
 
-.blog-title { /* Used in articles.html */
+.blog-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.blog-excerpt { /* Used in articles.html */
+.blog-excerpt {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
-.blog-link { /* Used in articles.html */
+.blog-link {
     color: var(--accent-color);
     text-decoration: none;
     font-weight: 500;
@@ -261,48 +237,39 @@ body {
 
 .blog-link svg {
     margin-left: 0.5rem;
-    transition: transform 0.3s ease;
 }
 
-.blog-link:hover svg {
-    transform: translateX(5px);
-}
-
-/* Blog Post Content (from blog_template.html and old style_blogs.css) */
 .blog-header {
-    background: linear-gradient(to right, var(--background-color), rgba(var(--gradient-blue-end-rgb), 0.1));
-    color: var(--primary-color); /* Changed from #fff to var(--primary-color) */
+    background: var(--background-color);
+    color: var(--primary-color);
     padding: 40px 0;
     text-align: left;
 }
 
 .blog-header h1 {
-    font-size: 3em;
+    font-size: 2em;
     margin: 0;
-    line-height: 1;
 }
 
-.blog-header .subtitle { /* Specific for blog header subtitle */
-    font-size: 2em;
-    color: var(--light-text-color); /* Using variable */
-    line-height: 1;
+.blog-header .subtitle {
+    font-size: 1.2em;
+    color: var(--text-secondary);
 }
 
 .meta {
     font-size: 0.9em;
-    color: var(--lighter-text-color); /* Using variable */
-    line-height: 0.8;
+    color: var(--text-secondary);
 }
 
 .blog-content h2 {
-    color: var(--heading-color-blog); /* Using variable */
+    color: var(--primary-color);
     margin-top: 1.5em;
 }
 
 blockquote {
-    border-left: 5px solid var(--border-color-dark); /* Using variable */
+    border-left: 5px solid var(--text-secondary);
     padding-left: 15px;
-    color: var(--blockquote-text-color); /* Using variable */
+    color: var(--text-secondary);
     font-style: italic;
     margin: 20px 0;
 }
@@ -310,11 +277,11 @@ blockquote {
 .blog-footer {
     text-align: center;
     margin-top: 20px;
-    color: var(--footer-text-color); /* Using variable */
+    color: var(--text-secondary);
 }
 
 .blog-footer a {
-    color: var(--footer-link-color); /* Using variable */
+    color: var(--text-secondary);
     text-decoration: none;
 }
 
@@ -323,55 +290,18 @@ blockquote {
 }
 
 /* ------------------------------------ */
-/* 9. Animations                        */
-/* ------------------------------------ */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fade-in {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-/* ------------------------------------ */
-/* 10. Media Queries                    */
+/* 8. Media Queries                     */
 /* ------------------------------------ */
 @media (max-width: 768px) {
-    .navigation {
-        display: none;
-    }
-
     .hero {
         padding: 0 5%;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-content {
-        width: 100%;
-        margin-top: 20%;
-    }
-
-    .hero-image { /* This class doesn't seem to be used in home.html anymore */
-        position: relative;
-        width: 100%;
-        margin-top: 1rem;
-        transform: none;
     }
 
     .title {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
-    .projects,
-    .blog-grid { /* Consolidated for responsiveness */
+    .common-grid {
         grid-template-columns: 1fr;
         padding: 3rem 5%;
     }

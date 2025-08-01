@@ -1,12 +1,20 @@
 /* ------------------------------------ */
 /* 1. Variables                         */
 /* ------------------------------------ */
+@font-face {
+    font-family: 'Bahnschrift';
+    src: url('assets/fonts/bahnschrift.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --primary-color: rgb(130, 130, 130);
     --background-color: #e3e3e3;
     --accent-color: #ffcf32;
     --text-secondary: #545454;
     --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-title: 'Bahnschrift', var(--font-family-base);
 }
 
 /* ------------------------------------ */
@@ -156,6 +164,7 @@ body {
 }
 
 .title {
+    font-family: var(--font-family-title);
     font-size: 4rem;
     font-weight: 700;
     text-align: center;
@@ -218,6 +227,7 @@ body {
 }
 
 .project-title {
+    font-family: var(--font-family-title);
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
@@ -285,6 +295,7 @@ body {
 }
 
 .contact-card h4 {
+    font-family: var(--font-family-title);
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.2rem;
@@ -326,6 +337,7 @@ body {
 }
 
 .section-title {
+    font-family: var(--font-family-title);
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-secondary);
@@ -357,6 +369,7 @@ body {
 }
 
 .certification-title {
+    font-family: var(--font-family-title);
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-secondary);
@@ -392,6 +405,7 @@ body {
 }
 
 .blog-title {
+    font-family: var(--font-family-title);
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
@@ -421,6 +435,7 @@ body {
 }
 
 .blog-header h1 {
+    font-family: var(--font-family-title);
     font-size: 2em;
     margin: 0;
 }
@@ -436,6 +451,7 @@ body {
 }
 
 .blog-content h2 {
+    font-family: var(--font-family-title);
     color: var(--primary-color);
     margin-top: 1.5em;
 }

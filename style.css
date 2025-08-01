@@ -124,7 +124,8 @@ body {
 .projects {
     width: 90%;
     max-width: 1200px;
-    padding: 5rem 5rem;
+    padding: 5vw 5vw;
+
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -167,7 +168,7 @@ body {
 
 .project-title {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .project-description {
@@ -246,19 +247,37 @@ body {
 .about-section {
     padding: 5rem 10%;
     background: #f0f0f0;
-    text-align: center;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image-container {
+    width: 100%;
+    height: 400px;
+    mask-image: radial-gradient(circle at 0% center, black 30%, transparent 95%);
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .about-content {
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
+    text-align: left;
 }
 
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .about-description {

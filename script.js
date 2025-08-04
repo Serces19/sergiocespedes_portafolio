@@ -26,25 +26,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Load navigation
-fetch('/navigation.html')
-    .then(res => res.text())
-    .then(text => {
-        let oldelem = document.querySelector("script#replace_with_navbar");
-        let newelem = document.createElement("div");
-        newelem.innerHTML = text;
-        oldelem.parentNode.replaceChild(newelem,oldelem);
-    })
-
-
-
-
-
-
-
-
-
-    // Espera a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Load navigation and attach menu listeners
+    fetch('/navigation.html')
+        .then(res => res.text())
+        .then(text => {
+            let oldelem = document.querySelector("script#replace_with_navbar");
+            if (oldelem) {
+                let newelem = document.createElement("div");
+                newelem.innerHTML = text;
+                oldelem.parentNode.replaceChild(newelem, oldelem);
+
+                // --- Hamburger Menu ---
+                const hamburgerMenu = document.querySelector('.hamburger-menu');
+                const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+                const closeBtn = document.querySelector('.close-btn');
+
+                if (hamburgerMenu && mobileNavOverlay && closeBtn) {
+                    hamburgerMenu.addEventListener('click', () => {
+                        mobileNavOverlay.classList.add('active');
+                    });
+
+                    closeBtn.addEventListener('click', () => {
+                        mobileNavOverlay.classList.remove('active');
+                    });
+                }
+            }
+        });
 
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');

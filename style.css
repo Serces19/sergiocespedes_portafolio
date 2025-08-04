@@ -103,6 +103,14 @@ body {
     transition: 0.5s;
 }
 
+.mobile-nav-overlay.active {
+    width: 100%;
+}
+
+body.mobile-nav-active {
+    overflow: hidden;
+}
+
 .mobile-nav-overlay-content {
     position: relative;
     top: 25%;

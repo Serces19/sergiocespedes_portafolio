@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /projects/
+Allow: /articles/
+Allow: /blogs/
+Allow: /assets/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://sergiocespedes.com/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1

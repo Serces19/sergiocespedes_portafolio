@@ -1,9 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM fully loaded and parsed");
 
+    // Load 3D background component
+    console.log("Fetching 3d-background.html...");
+    fetch('./3d-background.html')
+        .then(res => {
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+            return res.text();
+        })
+        .then(text => {
+            let oldelem = document.querySelector("script#replace_with_3d_background");
+            if (oldelem) {
+                let newelem = document.createElement("div");
+                newelem.innerHTML = text;
+                oldelem.parentNode.replaceChild(newelem, oldelem);
+                console.log("3D background component loaded.");
+            }
+        })
+        .catch(error => {
+            console.error("Error loading 3D background:", error);
+        });
+
     // Load navigation and attach menu listeners
     console.log("Fetching navigation.html...");
-    fetch('/navigation.html')
+    fetch('./navigation.html')
         .then(res => {
             console.log("Fetch response received.");
             if (!res.ok) {

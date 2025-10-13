@@ -1,0 +1,152 @@
+<!-- 3D Canvas Background Component -->
+<canvas id="renderCanvas" class="absolute inset-0 w-full h-full opacity-50"></canvas>
+
+<!-- Loading indicator -->
+<div id="loadingIndicator" class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent/5 to-cloud-blue/5 pointer-events-none">
+    <div class="text-center">
+        <div class="w-8 h-8 border-3 border-accent/40 border-t-accent rounded-full animate-spin mx-auto mb-3"></div>
+        <p class="text-primary-dark text-sm font-medium">Cargando modelo 3D...</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    const canvas = document.getElementById("renderCanvas");
+    const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
+    const scene = new BABYLON.Scene(engine);
+
+    // Luces
+    const hemisphericLight = new BABYLON.HemisphericLight("hemisphericLight", new BABYLON.Vector3(0, 1, 0), scene);
+    hemisphericLight.intensity = 0.8;
+    hemisphericLight.diffuse = new BABYLON.Color3(1, 0.95, 0.8);
+
+    const directionalLight = new BABYLON.DirectionalLight("directionalLight", new BABYLON.Vector3(-1, -1, -1), scene);
+    directionalLight.intensity = 0.6;
+    directionalLight.diffuse = new BABYLON.Color3(0.8, 0.9, 1);
+
+    // Cámara sin controles
+    const camera = new BABYLON.ArcRotateCamera("camera", 0, Math.PI / 2, 8, BABYLON.Vector3.Zero(), scene);
+    camera.lowerRadiusLimit = 5;
+    camera.upperRadiusLimit = 15;
+    camera.inputs.clear();
+
+    // Variables de control
+    let scrollRotation = 0;
+    const maxScrollRotation = Math.PI / 2; // 1/4 de vuelta (90 grados)
+    let canRotate = true;
+    let modelMesh = null;
+
+    // Cargar modelo 3D
+    function cargarModelo3D() {
+        const timeoutId = setTimeout(() => {
+            const indicator = document.getElementById('loadingIndicator');
+            if (indicator) indicator.style.display = 'none';
+        }, 3000);
+
+        BABYLON.SceneLoader.Append("./", "./assets/tarea5.glb", scene, function (loadedScene) {
+            clearTimeout(timeoutId);
+            const indicator = document.getElementById('loadingIndicator');
+            if (indicator) indicator.style.display = 'none';
+
+            if (loadedScene.meshes.length > 0) {
+                modelMesh = loadedScene.meshes[0];
+            }
+
+            if (loadedScene.animationGroups && loadedScene.animationGroups.length > 0) {
+                loadedScene.animationGroups.forEach(group => group.start(true));
+            }
+        }, null, function() {
+            clearTimeout(timeoutId);
+            crearModeloAlternativo();
+        });
+    }
+
+    // Modelo alternativo
+    function crearModeloAlternativo() {
+        const parent = new BABYLON.TransformNode("parent", scene);
+        modelMesh = parent;
+
+        const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2 }, scene);
+        sphere.position.y = 1;
+        sphere.parent = parent;
+
+        const box = BABYLON.MeshBuilder.CreateBox("box", { size: 1.5 }, scene);
+        box.position.y = -1;
+        box.parent = parent;
+
+        const torus = BABYLON.MeshBuilder.CreateTorus("torus", { diameter: 3, thickness: 0.5 }, scene);
+        torus.parent = parent;
+
+        const material1 = new BABYLON.StandardMaterial("mat1", scene);
+        material1.diffuseColor = new BABYLON.Color3(1, 0.8, 0.2);
+        material1.emissiveColor = new BABYLON.Color3(0.2, 0.1, 0);
+
+        const material2 = new BABYLON.StandardMaterial("mat2", scene);
+        material2.diffuseColor = new BABYLON.Color3(0.2, 0.8, 1);
+        material2.emissiveColor = new BABYLON.Color3(0, 0.1, 0.2);
+
+        const material3 = new BABYLON.StandardMaterial("mat3", scene);
+        material3.diffuseColor = new BABYLON.Color3(0.8, 0.2, 1);
+        material3.emissiveColor = new BABYLON.Color3(0.1, 0, 0.2);
+
+        sphere.material = material1;
+        box.material = material2;
+        torus.material = material3;
+
+        const indicator = document.getElementById('loadingIndicator');
+        if (indicator) indicator.style.display = 'none';
+    }
+
+    // Control de scroll para rotación
+    window.addEventListener('wheel', (event) => {
+        if (window.scrollY === 0 && canRotate) {
+            event.preventDefault();
+            
+            const delta = event.deltaY * 0.003;
+            scrollRotation += delta;
+            
+            if (scrollRotation >= maxScrollRotation) {
+                scrollRotation = maxScrollRotation;
+                canRotate = false;
+            } else if (scrollRotation < 0) {
+                scrollRotation = 0;
+            }
+            
+            if (modelMesh) {
+                modelMesh.rotation.y = scrollRotation;
+            }
+        }
+    }, { passive: false });
+
+    // Resetear cuando volvemos arriba
+    let resetTimeout;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY === 0 && !canRotate) {
+            clearTimeout(resetTimeout);
+            resetTimeout = setTimeout(() => {
+                canRotate = true;
+                scrollRotation = 0;
+                if (modelMesh) {
+                    modelMesh.rotation.y = 0;
+                }
+            }, 1000);
+        }
+    });
+
+    // Iniciar
+    scene.executeWhenReady(function () {
+        cargarModelo3D();
+        setTimeout(() => {
+            if (scene.meshes.length <= 1) {
+                crearModeloAlternativo();
+            }
+        }, 4000);
+    });
+
+    // Render loop
+    engine.runRenderLoop(() => scene.render());
+
+    // Redimensionamiento
+    window.addEventListener("resize", () => engine.resize());
+})();
+</script>

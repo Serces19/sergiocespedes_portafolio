@@ -1,165 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sergio Cespedes - Projects & Tools</title>
-    <link rel="icon" href="assets/logo_scope.png" type="image/x-icon">
+    <meta name="description" content="Portfolio of projects and tools by Sergio Cespedes - Cloud Architect | Technical Director | R&D. VFX pipelines, machine learning, and cloud infrastructure solutions.">
+    <meta name="keywords" content="VFX Pipeline, Cloud Architecture, Machine Learning, Deadline Cloud, Technical Direction, R&D Projects">
+    <meta name="author" content="Sergio Cespedes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sergiocespedes.com/articles.html">
+    <meta property="og:title" content="Sergio Cespedes - Projects & Tools | Cloud Architect | Technical Director | R&D">
+    <meta property="og:description" content="Portfolio of technical projects including VFX pipelines, cloud infrastructure, and R&D tools">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sergiocespedes.com/articles.html">
+    <meta property="twitter:title" content="Sergio Cespedes - Projects & Tools | Cloud Architect | Technical Director | R&D">
+    <meta property="twitter:description" content="Portfolio of technical projects including VFX pipelines, cloud infrastructure, and R&D tools">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': 'rgb(130, 130, 130)',
+                        'primary-dark': 'rgb(100, 100, 100)',
+                        'primary-light': 'rgb(160, 160, 160)',
+                        'accent': '#ffcf32',
+                        'accent-light': '#ffe066',
+                        'accent-dark': '#e6b800',
+                        'cloud-blue': '#007acc',
+                        'cloud-light': '#4db8ff',
+                        'success': '#10b981',
+                        'warning': '#f59e0b',
+                        'error': '#ef4444'
+                    },
+                    fontFamily: {
+                        'sans': ['"IBM Plex Mono"', 'monospace'],
+                        'title': ['"Space Grotesk"', 'sans-serif'] // títulos
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+
+    <title> Sergio Cespedes - Projects & Tools | Cloud Architect | Technical Director | R&D</title>
+    <link rel="icon" href="assets/logo_scope.png" type="image/x-icon">
 </head>
 <body>
     <script id="replace_with_navbar"></script>
 
-    <header class="articles-page-header">
-        <div class="header-content animate-fade-in">
-            <h1 class="title">Projects & Tools</h1>
-            <p class="subtitle">Explore my development tools, technical insights, and experiences in VFX pipeline development</p>
+    <!-- Header Section - Diseño Moderno -->
+    <header class="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-cloud-blue via-blue-600 to-cloud-light overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
+        <!-- Main Content -->
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h1 class="font-title text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white animate-fade-in">
+                Projects & Tools
+            </h1>
+            <p class="text-lg md:text-xl text-white/90 leading-relaxed animate-fade-in animation-delay-200">
+                Explore my development tools, technical insights, and experiences in VFX pipeline development
+            </p>
+
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-center gap-8 mt-12 animate-fade-in animation-delay-400">
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-accent">7+</div>
+                    <div class="text-white/80 text-sm">Technical Tools</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-accent">5+</div>
+                    <div class="text-white/80 text-sm">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-accent">3</div>
+                    <div class="text-white/80 text-sm">Certifications</div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="projects common-grid">
-        <article class="common-card animate-fade-in">
-            <img src="assets/render.jpg" alt="Deadline Render Setup">
-            <div class="blog-content">
-                <!-- <span class="blog-tag">Pipeline</span> -->
-                <h2 class="project-title">Setting Up Deadline Render Farm</h2>
-                <p class="project-description">A comprehensive guide to implementing and configuring Deadline for optimal rendering performance in a VFX pipeline</p>
-                <a href="blogs/blog_template.html?post=blog_deadline_cloud" class="blog-link">
-                    Read More
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
+    <!-- Projects Section 1 - Diseño Moderno -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-title text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-primary-dark to-cloud-blue bg-clip-text text-transparent">
+                Technical Projects
+            </h2>
 
-        <article class="common-card animate-fade-in">
-            <img src="assets/cloud2.jpg" alt="Cloud Computing">
-            <div class="blog-content">
-                <!-- <span class="blog-tag">Cloud</span> -->
-                <h2 class="project-title">Cloud Infrastructure for ML Tasks</h2>
-                <p class="project-description">Exploring scalable cloud solutions for machine learning tasks in VFX production environments</p>
-                <a href="blogs/blog_template.html?post=blog_studio_cloud" class="blog-link">
-                    Read More
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Deadline Cloud Project -->
+                <article class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20">
+                    <div class="relative">
+                        <img src="assets/render.jpg"
+                             alt="Deadline Render Farm Setup - Cloud Infrastructure Project"
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-accent/90 text-primary-dark rounded-full text-sm font-medium">
+                                Cloud Infrastructure
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
+                            Setting Up Deadline Render Farm
+                        </h3>
+                        <p class="text-primary leading-relaxed mb-4">
+                            A comprehensive guide to implementing and configuring Deadline for optimal rendering performance in a VFX pipeline
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cloud-blue/10 text-cloud-blue rounded text-xs">AWS</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Deadline</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">VFX Pipeline</span>
+                        </div>
+                        <a href="blogs/blog_template.html?post=blog_deadline_cloud"
+                           class="inline-flex items-center text-accent hover:text-accent-dark font-medium group-hover:translate-x-1 transition-all">
+                            Read More
+                            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
 
-        <article class="common-card animate-fade-in">
-            <img src="assets/machine.jpg" alt="Pipeline Development" class="blog-image">
-            <div class="blog-content">
-                <!-- <span class="blog-tag">Development</span> -->
-                <h2 class="project-title">Building with Ayon (OpenPype)</h2>
-                <p class="project-description">Deep dive into pipeline development using Ayon, formerly known as OpenPype, for efficient asset management</p>
-                <a href="blogs/blog_template.html?post=blog_ayon" class="blog-link">
-                    Read More
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
+                <!-- Cloud ML Project -->
+                <article class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-cloud-blue/20">
+                    <div class="relative">
+                        <img src="assets/cloud2.jpg"
+                             alt="Cloud Infrastructure for Machine Learning - AWS and ML Pipeline"
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-cloud-blue/90 text-white rounded-full text-sm font-medium">
+                                Machine Learning
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-dark mb-3 group-hover:text-cloud-blue transition-colors">
+                            Cloud Infrastructure for ML Tasks
+                        </h3>
+                        <p class="text-primary leading-relaxed mb-4">
+                            Exploring scalable cloud solutions for machine learning tasks in VFX production environments
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cloud-blue/10 text-cloud-blue rounded text-xs">AWS ML</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Python</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">TensorFlow</span>
+                        </div>
+                        <a href="blogs/blog_template.html?post=blog_studio_cloud"
+                           class="inline-flex items-center text-cloud-blue hover:text-cloud-light font-medium group-hover:translate-x-1 transition-all">
+                            Read More
+                            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
 
-        <article class="common-card animate-fade-in">
-            <img src="assets/linux.jpg" alt="Linux Setup" class="blog-image">
-            <div class="blog-content">
-                <!-- <span class="blog-tag">System</span> -->
-                <h2 class="project-title">Linux Environment Setup</h2>
-                <p class="project-description">Essential guide to configuring a Linux environment for VFX pipeline development and production</p>
-                <a href="blogs/blog_template.html?post=blog_linux" class="blog-link">
-                    Read More
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+                <!-- Ayon Pipeline Project -->
+                <article class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20">
+                    <div class="relative">
+                        <img src="assets/machine.jpg"
+                             alt="Ayon Pipeline Development - Asset Management System"
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-accent/90 text-primary-dark rounded-full text-sm font-medium">
+                                Pipeline Development
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
+                            Building with Ayon (OpenPype)
+                        </h3>
+                        <p class="text-primary leading-relaxed mb-4">
+                            Deep dive into pipeline development using Ayon, formerly known as OpenPype, for efficient asset management
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Ayon</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Asset Management</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Python</span>
+                        </div>
+                        <a href="blogs/blog_template.html?post=blog_ayon"
+                           class="inline-flex items-center text-accent hover:text-accent-dark font-medium group-hover:translate-x-1 transition-all">
+                            Read More
+                            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Linux Setup Project -->
+                <article class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20">
+                    <div class="relative">
+                        <img src="assets/linux.jpg"
+                             alt="Linux Environment Setup - VFX Development Environment"
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-accent/90 text-primary-dark rounded-full text-sm font-medium">
+                                System Administration
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
+                            Linux Environment Setup
+                        </h3>
+                        <p class="text-primary leading-relaxed mb-4">
+                            Essential guide to configuring a Linux environment for VFX pipeline development and production
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Linux</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">VFX Tools</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">DevOps</span>
+                        </div>
+                        <a href="blogs/blog_template.html?post=blog_linux"
+                           class="inline-flex items-center text-accent hover:text-accent-dark font-medium group-hover:translate-x-1 transition-all">
+                            Read More
+                            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
             </div>
-        </article>
+        </div>
     </section>
 
 
 
-    <section class="projects common-grid">
-        <article class="common-card animate-fade-in">
-            <img src="assets/render_all_edit.png"" alt="Deadline Render Setup" class="blog-image">
-            <div class="blog-content">
-                <!-- <span class="blog-tag">Pipeline</span> -->
-                <h2 class="project-title">Render All!</h2>
-                <p class="project-description">Open source desktop app to render in local</p>
-                <a href="blogs/blog_template.html?post=render_all" class="blog-link">
-                    Read More
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
+    <!-- Projects Section 2 - Tools & Applications -->
+    <section class="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-title text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-primary-dark to-cloud-blue bg-clip-text text-transparent">
+                Tools & Applications
+            </h2>
 
-        <article class="common-card animate-fade-in">
-            <img src="assets/telegram_notify.png" alt="Telegram Notify" class="blog-image">
-            <div class="blog-content">
-                <!-- <span class="blog-tag">Cloud</span> -->
-                <h2 class="project-title">Telegram Notify</h2>
-                <p class="project-description">Easy way to get notifications of your renders</p>
-                <a href="blogs/blog_template.html?post=telegram_notify" class="blog-link">
-                    Read More
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Render All Project -->
+                <article class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20">
+                    <div class="relative">
+                        <img src="assets/render_all_edit.png"
+                             alt="Render All! - Open Source Desktop App for Local Rendering"
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-accent/90 text-primary-dark rounded-full text-sm font-medium">
+                                Desktop App
+                            </span>
+                        </div>
+                        <!-- GitHub Link Badge -->
+                        <div class="absolute top-4 right-4">
+                            <a href="https://github.com/Serces19/render-all"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="inline-flex items-center px-3 py-1 bg-black/50 backdrop-blur-sm text-white rounded-full text-xs hover:bg-black/70 transition-all">
+                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
+                            Render All!
+                        </h3>
+                        <p class="text-primary leading-relaxed mb-4">
+                            Open source desktop app to render in local environments with an intuitive interface for managing render jobs.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Python</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Desktop App</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Open Source</span>
+                        </div>
+                        <a href="blogs/blog_template.html?post=render_all"
+                           class="inline-flex items-center text-accent hover:text-accent-dark font-medium group-hover:translate-x-1 transition-all">
+                            Read More
+                            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
 
-        <article class="common-card animate-fade-in">
-            <img src="assets/atom_app_edit.png" alt="Atom app">
-            <div class="blog-content">
-                <!-- <span class="blog-tag">Development</span> -->
-                <h2 class="project-title">Shot Tracker and Pipeline</h2>
-                <p class="project-description">Artist friendly pipeline to work in comp tasks</p>
-                <a href="blogs/blog_template.html?post=atom_app" class="blog-link">
-                    Read More
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
+                <!-- Telegram Notify Project -->
+                <article class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-cloud-blue/20">
+                    <div class="relative">
+                        <img src="assets/telegram_notify.png"
+                             alt="Telegram Notify - Real-time Render Notifications"
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-cloud-blue/90 text-white rounded-full text-sm font-medium">
+                                Notification System
+                            </span>
+                        </div>
+                        <!-- GitHub Link Badge -->
+                        <div class="absolute top-4 right-4">
+                            <a href="https://github.com/Serces19/telegram-notify"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="inline-flex items-center px-3 py-1 bg-black/50 backdrop-blur-sm text-white rounded-full text-xs hover:bg-black/70 transition-all">
+                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-dark mb-3 group-hover:text-cloud-blue transition-colors">
+                            Telegram Notify
+                        </h3>
+                        <p class="text-primary leading-relaxed mb-4">
+                            Easy way to get real-time notifications of your renders directly through Telegram messaging.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cloud-blue/10 text-cloud-blue rounded text-xs">Telegram API</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Notifications</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Bot</span>
+                        </div>
+                        <a href="blogs/blog_template.html?post=telegram_notify"
+                           class="inline-flex items-center text-cloud-blue hover:text-cloud-light font-medium group-hover:translate-x-1 transition-all">
+                            Read More
+                            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
 
+                <!-- Shot Tracker Project -->
+                <article class="group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20">
+                    <div class="relative">
+                        <img src="assets/atom_app_edit.png"
+                             alt="Shot Tracker Pipeline - Artist-Friendly Compositing Tool"
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-accent/90 text-primary-dark rounded-full text-sm font-medium">
+                                Artist Tools
+                            </span>
+                        </div>
+                        <!-- GitHub Link Badge -->
+                        <div class="absolute top-4 right-4">
+                            <a href="https://github.com/Serces19/shot-tracker"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="inline-flex items-center px-3 py-1 bg-black/50 backdrop-blur-sm text-white rounded-full text-xs hover:bg-black/70 transition-all">
+                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
+                            Shot Tracker Pipeline
+                        </h3>
+                        <p class="text-primary leading-relaxed mb-4">
+                            Artist-friendly pipeline tool designed to streamline compositing tasks with an intuitive interface.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Compositing</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Artist Tools</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent-dark rounded text-xs">Pipeline</span>
+                        </div>
+                        <a href="blogs/blog_template.html?post=atom_app"
+                           class="inline-flex items-center text-accent hover:text-accent-dark font-medium group-hover:translate-x-1 transition-all">
+                            Read More
+                            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-grid animate-fade-in">
-            <a href="tel:59160760338" class="contact-card">
-                <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                <div>
-                    <h4>Phone</h4>
-                    <p>591 60760338</p>
-                </div>
-            </a>
-            <a href="mailto:sergioces19@gmail.com" class="contact-card">
-                <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                <div>
-                    <h4>Email</h4>
-                    <p>sergioces19@gmail.com</p>
-                </div>
-            </a>
-            <a href="https://www.linkedin.com/in/sergio-cespedes/" target="_blank" class="contact-card">
-                <svg class="contact-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-7 6.07h-2.02v5.99H7.97v-5.99H5.99V9.05h1.98V7.8c0-1.48.87-2.3 2.23-2.3.64 0 1.2.05 1.36.07v1.9h-1.16c-.71 0-.85.34-.85.83v1.15h1.94l-.25 2.02z"/></svg>
-                <div>
-                    <h4>LinkedIn</h4>
-                    <p>linkedin.com/in/sergio-cespedes</p>
-                </div>
-            </a>
-            <a href="https://github.com/Serces19" target="_blank" class="contact-card">
-                <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 1.27a11 11 0 0 0-3.48 21.46c.55.1.75-.24.75-.53v-1.84c-3.04.66-3.68-1.47-3.68-1.47a2.89 2.89 0 0 0-1.2-1.58c-.98-.67.07-.66.07-.66a2.28 2.28 0 0 1 1.66 1.12 2.3 2.3 0 0 0 3.13 1.12 2.3 2.3 0 0 1 .69-1.37c-2.38-.27-4.88-1.19-4.88-5.3 0-1.17.42-2.13 1.1-2.88a3.9 3.9 0 0 1 .1-2.82s.9-.29 2.95 1.1a10.2 10.2 0 0 1 5.4 0c2.05-1.39 2.95-1.1 2.95-1.1a3.9 3.9 0 0 1 .1 2.82c.68.75 1.1 1.71 1.1 2.88 0 4.12-2.5 5.02-4.88 5.3a2.5 2.5 0 0 1 .74 1.94v2.88c0 .29.2.63.75.53A11 11 0 0 0 12 1.27z"/></svg>
-                <div>
-                    <h4>GitHub</h4>
-                    <p>github.com/Serces19</p>
-                </div>
-            </a>
+    <!-- Contact Section - Diseño Moderno -->
+    <section id="contact" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-title text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary-dark to-cloud-blue bg-clip-text text-transparent">
+                Contact
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Phone -->
+                <a href="tel:+59160760338"
+                   class="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20 hover:border-accent">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gradient-to-r from-accent to-accent-dark rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary-dark mb-1">Phone</h4>
+                            <p class="text-primary text-sm">+591 60760338</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:sergioces19@gmail.com"
+                   class="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-cloud-blue/20 hover:border-cloud-blue">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gradient-to-r from-cloud-blue to-cloud-light rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary-dark mb-1">Email</h4>
+                            <p class="text-primary text-sm">sergioces19@gmail.com</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/sergio-cespedes/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20 hover:border-accent">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gradient-to-r from-accent to-accent-dark rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7 text-primary-dark" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary-dark mb-1">LinkedIn</h4>
+                            <p class="text-primary text-sm">linkedin.com/in/sergio-cespedes</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/Serces19"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-accent/20 hover:border-accent">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gradient-to-r from-accent to-accent-dark rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7 text-primary-dark" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary-dark mb-1">GitHub</h4>
+                            <p class="text-primary text-sm">github.com/Serces19</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center">
+                <p class="text-lg text-primary mb-6">
+                    Ready to talk about your next project?
+                </p>
+                <a href="mailto:sergioces19@gmail.com?subject=Consulta sobre Proyecto&body=Hola Sergio, me gustaría discutir un proyecto..."
+                   class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent to-accent-dark text-primary-dark font-bold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    <svg class="mr-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    Let’s Talk
+                </a>
+            </div>
         </div>
     </section>
 

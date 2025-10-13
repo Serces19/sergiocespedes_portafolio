@@ -3,6 +3,18 @@
 /* Blog Specific Styles                 */
 /* ------------------------------------ */
 
+
+:root {
+    --primary-color: rgb(130, 130, 130);
+    --background-color: #e3e3e3;
+    --accent-color: #ffcf32;
+    --text-secondary: #545454;
+
+    --font-family-base: "IBM Plex Mono", monospace;
+    --font-family-title: "Space Grotesk", sans-serif;
+}
+
+
 body {
     background-color: var(--background-color);
     color: var(--primary-color);

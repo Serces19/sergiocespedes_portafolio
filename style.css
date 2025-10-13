@@ -1,21 +1,17 @@
 /* ------------------------------------ */
 /* 1. Variables                         */
 /* ------------------------------------ */
-@font-face {
-    font-family: 'Bahnschrift';
-    src: url('assets/fonts/bahnschrift.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 :root {
     --primary-color: rgb(130, 130, 130);
     --background-color: #e3e3e3;
     --accent-color: #ffcf32;
     --text-secondary: #545454;
-    --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    --font-family-title: 'Bahnschrift', var(--font-family-base);
+
+    --font-family-base: "IBM Plex Mono", monospace;
+    --font-family-title: "Space Grotesk", sans-serif;
 }
+
 
 /* ------------------------------------ */
 /* 2. Base Styles & Resets              */
@@ -481,32 +477,4 @@ body.mobile-nav-active {
     .about-grid {
         grid-template-columns: 1fr;
     }
-}
-
-
-
-
-
-
-
-/* El contenedor principal de la animación */
-.particle-card {
-    position: relative; /* Necesario para posicionar el canvas dentro */
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-/* Estilos para el canvas de partículas */
-#particleCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* Se asegura que el canvas esté detrás del contenido */
 }

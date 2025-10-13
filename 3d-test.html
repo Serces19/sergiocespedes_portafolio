@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Babylon.js Scroll Animation</title>
+    <style>
+        html, body {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        /* El canvas donde se renderiza la escena 3D */
+        #renderCanvas {
+            position: fixed; /* Clave: Se queda fijo en la pantalla */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+            z-index: -1; /* Se pone detrás del contenido */
+        }
+
+        /* Contenido que genera el scroll */
+        .scroll-content {
+            height: 200vh; /* IMPORTANTE: Esto crea el espacio para hacer scroll */
+            padding-top: 70vh;
+            text-align: center;
+        }
+
+        .scroll-content h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+    </style>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+</head>
+<body>
+
+    <canvas id="renderCanvas"></canvas>
+    
+    <div class="scroll-content">
+        <h1>¡Haz scroll hacia abajo! 👇</h1>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURACIÓN BÁSICA DE BABYLON.JS ---
+        const canvas = document.getElementById('renderCanvas');
+        const engine = new BABYLON.Engine(canvas, true);
+
+        let model = null;
+
+        const createScene = async function () {
+            const scene = new BABYLON.Scene(engine);
+
+            // Dejamos la cámara con valores iniciales, luego la ajustaremos
+            const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 5, BABYLON.Vector3.Zero(), scene);
+            camera.attachControl(canvas, true);
+
+            const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+            light.intensity = 1.5; // Un poco más de luz por si acaso
+            
+            try {
+                const result = await BABYLON.SceneLoader.ImportMeshAsync("", "assets/", "radio.glb", scene);
+                model = result.meshes[0];
+                console.log("Modelo cargado con éxito.", model);
+
+                // --- AJUSTE AUTOMÁTICO DE CÁMARA ---
+                // 1. Apuntar la cámara al centro del modelo
+                camera.setTarget(model.getAbsolutePosition());
+
+                // 2. Calcular el tamaño del modelo para hacer un zoom adecuado
+                const boundingInfo = model.getHierarchyBoundingVectors();
+                const modelSize = boundingInfo.max.subtract(boundingInfo.min);
+                const maxModelSize = Math.max(modelSize.x, modelSize.y, modelSize.z);
+
+                // 3. Ajustar el radio (zoom) de la cámara para que el objeto se vea completo
+                camera.radius = maxModelSize * 2; // Multiplicamos por 2 para dejar algo de espacio
+
+            } catch (e) {
+                console.error("Error al cargar el modelo:", e);
+            }
+            
+            // Si quieres, puedes activar el inspector para explorar la escena
+            // scene.debugLayer.show();
+            
+            return scene;
+        };
+
+        // --- 2. LA LÓGICA DE LA ANIMACIÓN CON SCROLL ---
+        function animateModelOnScroll() {
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            // Evitar división por cero si no hay scroll
+            if (scrollableHeight === 0) return;
+            
+            const scrollFraction = window.scrollY / scrollableHeight;
+
+            if (model) {
+                const rotationY = scrollFraction * Math.PI; // 180 grados
+                model.rotation.y = rotationY;
+            }
+        }
+        
+        // --- 3. INICIALIZACIÓN ---
+        createScene().then((scene) => {
+            window.addEventListener('scroll', animateModelOnScroll);
+
+            engine.runRenderLoop(() => {
+                scene.render();
+            });
+
+            window.addEventListener('resize', () => {
+                engine.resize();
+            });
+        });
+    </script>
+
+</body>
+</html>

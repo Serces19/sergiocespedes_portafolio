@@ -12,8 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
-    <link rel="alternate icon" href="../assets/logo_scope.png" type="image/png">
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/assets/logo_scope.png" type="image/png">
 
     <!-- MathJax Configuration - Must be before MathJax loads -->
     <script>
@@ -63,20 +63,16 @@
         // 3. Cargar el markdown si existe
         if (post) {
             fetch(`/blogs/${post}.md`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Markdown not found");
-                    }
-                    return response.text();
-                })
+                .then(response => response.text())
                 .then(text => {
-                    const content = document.getElementById("blog-content");
-                    content.innerHTML = marked.parse(text);
+                    // Replace relative image paths with absolute ones
+                    const absoluteText = text.replace(/\.\.\/assets\//g, '/assets/');
+                    document.getElementById('blog-content').innerHTML = marked.parse(absoluteText);
 
-                    // MathJax support
-                    if (window.MathJax) {
-                        MathJax.typesetPromise([content])
-                            .catch(err => console.log("MathJax typeset error:", err));
+                    // Trigger MathJax to process the newly added content
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        window.MathJax.typesetPromise([document.getElementById('blog-content')])
+                            .catch((err) => console.log('MathJax typeset error: ', err));
                     }
                 })
                 .catch(err => {

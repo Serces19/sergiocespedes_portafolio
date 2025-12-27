@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load 3D background component
     console.log("Fetching 3d-background.html...");
-    fetch('./3d-background.html')
+    fetch('/3d-background.html')
         .then(res => {
             if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             return res.text();
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load navigation and attach menu listeners
     console.log("Fetching navigation.html...");
-    fetch('./navigation.html')
+    fetch('/navigation.html')
         .then(res => {
             console.log("Fetch response received.");
             if (!res.ok) {

@@ -266,3 +266,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+/**
+ * Copy text to clipboard and show a toast notification
+ * @param {string} text - The text to copy
+ */
+function copyEmail(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+
+// Contact Form Handling (Formspree)
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.innerText = 'Message sent successfully! I will get back to you soon.';
+                    formStatus.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                    formStatus.style.color = '#059669';
+                    formStatus.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Oops! There was a problem submitting your form');
+                }
+            } catch (error) {
+                formStatus.innerText = error.message;
+                formStatus.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                formStatus.style.color = '#dc2626';
+                formStatus.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalBtnText;
+            }
+        });
+    }
+});

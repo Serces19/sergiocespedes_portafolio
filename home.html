@@ -575,23 +575,33 @@
                 </a>
 
                 <!-- Email -->
-                <a href="mailto:sergioces19@gmail.com"
-                    class="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-cloud-blue/20 hover:border-cloud-blue">
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-14 h-14 bg-gradient-to-r from-cloud-blue to-cloud-light rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-cloud-blue/20 hover:border-cloud-blue"
+                    style="cursor: pointer;">
+                    <div class="flex items-center gap-4 w-full">
+                        <a href="mailto:sergioces19@gmail.com"
+                            class="flex items-center gap-4 flex-grow text-decoration-none">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-r from-cloud-blue to-cloud-light rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="font-bold text-primary-dark mb-1">Email</h4>
+                                <p class="text-primary text-sm truncate">sergioces19@gmail.com</p>
+                            </div>
+                        </a>
+                        <button class="copy-btn" onclick="copyEmail('sergioces19@gmail.com')" title="Copy email">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3">
                                 </path>
                             </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-primary-dark mb-1">Email</h4>
-                            <p class="text-primary text-sm">sergioces19@gmail.com</p>
-                        </div>
+                        </button>
                     </div>
-                </a>
+                </div>
 
                 <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/sergio-cespedes/" target="_blank" rel="noopener noreferrer"
@@ -630,24 +640,49 @@
                 </a>
             </div>
 
-            <!-- Call to Action -->
-            <div class="text-center mt-16">
-                <p class="text-lg text-primary mb-6">
-                    Interested in working together?
+            <!-- Call to Action & Form -->
+            <div class="text-center mt-20">
+                <p class="text-lg text-primary mb-8 font-medium">
+                    Have a project in mind? Use the form below or reach out directly.
                 </p>
-                <a href="mailto:sergioces19@gmail.com?subject=New Project"
-                    class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent to-accent-dark text-primary-dark font-bold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                    <svg class="mr-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                    Let’s Talk
-                </a>
+
+                <div class="contact-form-container">
+                    <form action="https://formspree.io/f/mqakvjbe" method="POST" class="contact-form" id="contact-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Your name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="_replyto" class="form-input"
+                                    placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input"
+                                placeholder="What is this about?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-textarea"
+                                placeholder="Tell me more about your project..." required></textarea>
+                        </div>
+                        <input type="hidden" name="_subject" value="New inquiry from Portfolio">
+                        <button type="submit"
+                            class="inline-flex items-center px-10 py-4 bg-gradient-to-r from-accent to-accent-dark text-primary-dark font-bold text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mx-auto">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="form-status" class="hidden mt-6 p-4 rounded-xl font-medium"></div>
+                </div>
             </div>
         </div>
     </section>
 
+    <div id="toast" class="toast">Email copied to clipboard!</div>
     <script src="script.js"></script>
 
 </body>

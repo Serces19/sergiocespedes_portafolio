@@ -47,7 +47,8 @@ body {
     background-color: rgba(107, 107, 107, 0.616);
     z-index: 1000;
     display: flex;
-    justify-content: space-between; /* Changed to space-between */
+    justify-content: space-between;
+    /* Changed to space-between */
     align-items: center;
     padding: 1rem 2rem;
 }
@@ -94,7 +95,7 @@ body {
     z-index: 1001;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
 }
@@ -103,7 +104,7 @@ body {
     width: 100%;
 }
 
-body.mobile-nav-active {
+.body.mobile-nav-active {
     overflow: hidden;
 }
 
@@ -124,7 +125,8 @@ body.mobile-nav-active {
     transition: 0.3s;
 }
 
-.mobile-nav-overlay .nav-link:hover, .mobile-nav-overlay .nav-link:focus {
+.mobile-nav-overlay .nav-link:hover,
+.mobile-nav-overlay .nav-link:focus {
     color: #f1f1f1;
 }
 
@@ -223,13 +225,16 @@ body.mobile-nav-active {
     background-color: rgba(50, 50, 50, 0.07);
     padding: 4vw;
     border-radius: 8px;
-    width: 100%; /* Ensure card takes full width of its grid column */
+    width: 100%;
+    /* Ensure card takes full width of its grid column */
 }
 
 .common-card img {
     max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space below image */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Remove extra space below image */
     border-radius: 8px;
     margin-bottom: 1rem;
 }
@@ -252,7 +257,8 @@ body.mobile-nav-active {
 
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
     width: 100%;
@@ -288,7 +294,7 @@ body.mobile-nav-active {
     background: #ffffff;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     text-decoration: none;
     color: var(--text-secondary);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -297,7 +303,7 @@ body.mobile-nav-active {
 
 .contact-card:hover {
     transform: translateY(-5px) rotateY(4deg);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
 
@@ -377,7 +383,7 @@ body.mobile-nav-active {
     background: #ffffff;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     text-align: left;
     border-left: 5px solid var(--accent-color);
 }
@@ -441,7 +447,8 @@ body.mobile-nav-active {
 
 .common-card img {
     width: 100%;
-    height: 200px; /* Fixed height for consistency */
+    height: 200px;
+    /* Fixed height for consistency */
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 1rem;
@@ -477,4 +484,101 @@ body.mobile-nav-active {
     .about-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ------------------------------------ */
+/* 9. Contact Form & Toast Notifications */
+/* ------------------------------------ */
+
+.contact-form-container {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding-left: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+    padding: 1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 207, 50, 0.1);
+}
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.copy-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--primary-color);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 207, 50, 0.2);
+    color: var(--accent-color);
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 2000;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
 }

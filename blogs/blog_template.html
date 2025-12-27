@@ -38,9 +38,26 @@
 <body>
     <script id="replace_with_navbar"></script>
 
+    <div class="lang-switch-container" style="position: fixed; top: 80px; right: 20px; z-index: 1000;">
+        <button id="lang-toggle" class="nav-link"
+            style="background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); padding: 8px 15px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.1); cursor: pointer; font-family: var(--font-family-base); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+            <span id="lang-text">EN</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+            </svg>
+        </button>
+    </div>
+
     <div class="blog-container">
         <div id="blog-content"></div>
-        <a href="/articles" class="back-to-articles">← Back to Articles</a>
+        <div class="blog-footer-nav"
+            style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.05);">
+            <a href="/articles" class="back-to-articles" style="margin-top: 0;">← Back to Articles</a>
+        </div>
     </div>
 
     <script src="/script.js"></script>
@@ -60,10 +77,49 @@
             post = urlParams.get("post");
         }
 
-        // 3. Cargar el markdown si existe
-        if (post) {
-            fetch(`/blogs/${post}.md`)
-                .then(response => response.text())
+        // 3. Gestión de Idioma
+        const getLang = () => {
+            const saved = localStorage.getItem('pref-lang');
+            // Priorizar inglés por defecto como desea el usuario, 
+            // pero permitir que el usuario mantenga su elección si ya cambió manualmente.
+            return saved || 'en';
+        };
+
+        const setLang = (lang) => {
+            localStorage.setItem('pref-lang', lang);
+            updateLangUI(lang);
+            loadContent(post, lang);
+        };
+
+        const updateLangUI = (lang) => {
+            document.getElementById('lang-text').innerText = lang.toUpperCase();
+            document.documentElement.lang = lang;
+        };
+
+        // 4. Cargar el contenido
+        const loadContent = (slug, lang) => {
+            if (!slug) return;
+
+            const primaryPath = `/blogs/${slug}.${lang}.md`;
+            const fallbackLang = lang === 'en' ? 'es' : 'en';
+            const secondaryPath = `/blogs/${slug}.${fallbackLang}.md`;
+
+            fetch(primaryPath)
+                .then(response => {
+                    if (response.ok) return response.text();
+
+                    // Si el idioma preferido no existe, intentar el otro
+                    console.log(`Preferred language (${lang}) not found, trying fallback (${fallbackLang})...`);
+                    return fetch(secondaryPath).then(res => {
+                        if (res.ok) return res.text();
+
+                        // Si ninguno con sufijo funciona, intentar la ruta base original (.md)
+                        return fetch(`/blogs/${slug}.md`).then(r => {
+                            if (r.ok) return r.text();
+                            throw new Error("Post not found in any language");
+                        });
+                    });
+                })
                 .then(text => {
                     // Replace relative image paths with absolute ones
                     const absoluteText = text.replace(/\.\.\/assets\//g, '/assets/');
@@ -74,13 +130,29 @@
                         window.MathJax.typesetPromise([document.getElementById('blog-content')])
                             .catch((err) => console.log('MathJax typeset error: ', err));
                     }
+
+                    window.scrollTo(0, 0);
                 })
                 .catch(err => {
                     console.error(err);
                     document.getElementById("blog-content").innerHTML =
-                        "<p>Post not found.</p>";
+                        "<p>Post not found / Artículo no encontrado.</p>";
                 });
+        };
+
+        // Inicialización
+        let currentLang = getLang();
+        updateLangUI(currentLang);
+
+        if (post) {
+            loadContent(post, currentLang);
         }
+
+        // Toggle Listener
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            setLang(currentLang);
+        });
     </script>
 
 </body>

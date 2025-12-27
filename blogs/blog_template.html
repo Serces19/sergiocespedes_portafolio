@@ -46,23 +46,47 @@
     <script src="/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const post = urlParams.get('post');
+        // 1. Intentar primero desde la URL limpia: /blog/slug
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        let post = null;
 
+        if (pathParts[0] === "blog" && pathParts[1]) {
+            post = pathParts[1];
+        }
+
+        // 2. Fallback al formato antiguo: ?post=slug
+        if (!post) {
+            const urlParams = new URLSearchParams(window.location.search);
+            post = urlParams.get("post");
+        }
+
+        // 3. Cargar el markdown si existe
         if (post) {
-            fetch(`${post}.md`)
-                .then(response => response.text())
-                .then(text => {
-                    document.getElementById('blog-content').innerHTML = marked.parse(text);
-
-                    // Trigger MathJax to process the newly added content
-                    if (window.MathJax) {
-                        MathJax.typesetPromise([document.getElementById('blog-content')])
-                            .catch((err) => console.log('MathJax typeset error: ', err));
+            fetch(`/blogs/${post}.md`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Markdown not found");
                     }
+                    return response.text();
+                })
+                .then(text => {
+                    const content = document.getElementById("blog-content");
+                    content.innerHTML = marked.parse(text);
+
+                    // MathJax support
+                    if (window.MathJax) {
+                        MathJax.typesetPromise([content])
+                            .catch(err => console.log("MathJax typeset error:", err));
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById("blog-content").innerHTML =
+                        "<p>Post not found.</p>";
                 });
         }
     </script>
+
 </body>
 
 </html>

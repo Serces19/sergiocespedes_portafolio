@@ -5,9 +5,9 @@
     <iframe src="/assets/grafico_pca3d.html" style="width: 100%; height: 100%; border: none;"></iframe>
 </div>
 
-<p>The most Zizekian concept I've encountered in Deep Learning is, without a doubt, the <strong>Manifold</strong>.</p>
+<p>The most Zizekian concept I've encountered in Deep Learning is, without a doubt, the Manifold.</p>
 
-<p>As Slavoj Zizek would say, the <i>Real</i> is an ungraspable chaos, a pure and traumatic soup of data. However, upon this chaos, we build a series of fictions that structure our reality and give it meaning, we call this <strong>ideology</strong>. In the world of deep learning, that underlying structure is the Manifold. Although an image lives in a space of thousands of dimensions, its conceptual essence can often be simplified into a few key dimensions. The model's ideology is what allows us to navigate the chaos of pixels with semantic coherence.</p>
+<p>As Slavoj Zizek would say, the Real is an ungraspable chaos, a pure and traumatic soup of data. However, upon this chaos, we build a series of fictions that structure our reality and give it meaning, we call this ideology. In the world of deep learning, that underlying structure is the Manifold. Although an image lives in a space of thousands of dimensions, its conceptual essence can often be simplified into a few key dimensions. The model's ideology is what allows us to navigate the chaos of pixels with semantic coherence.</p>
 
 <h2>Is Age a Vector in DINOv3?</h2>
 <p>To explore the manifold in modern vision models like DINOv3, I created my own dataset with images of the same person at different stages of their life, from age 18 to 100. My goal was to observe how the model represents the concept of age in a face.</p>

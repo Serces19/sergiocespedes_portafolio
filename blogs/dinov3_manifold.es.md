@@ -36,7 +36,7 @@
 <h2>Más allá de los datos</h2>
 <p>Así como Žižek nos invita a mirar más allá de lo evidente para entender las estructuras que nos gobiernan, el Manifold nos recuerda que el Deep Learning funciona porque descubre y aprovecha estas jerarquías subyacentes. Entender la geometría de estos espacios no es solo teoría, es la clave para diseñar modelos más creativos, precisos y sobre todo profundos.</p>
 
-<p class="subtitle">Actualmente trabajo en un poryecti para inyectar de tipo de vectores de direccion en un pipeline de generativo, donde el control semántico sea tan fluido como la ideología misma.</p>
+<p class="subtitle">Actualmente trabajo en un proyecto para inyectar este tipo de vectores de dirección en un pipeline generativo, donde el control semántico sea tan fluido como la ideología misma.</p>
 
 ---
 <p><em>Inspirado en una discusión sobre la intersección entre filosofía y visión por computador.</em></p>

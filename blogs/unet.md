@@ -22,7 +22,7 @@
 <p>En inferencia, necesitamos <strong>consistencia píxel-determinística absoluta</strong> para mantener la estabilidad temporal. El Dropout introduce varianza estocástica que se percibe como "parpadeo" en secuencias de video. En su lugar, se utilizó Batch Normalization para regularización, asegurando coherencia temporal suave.</p>
 
 <h2>3. El Corazón es la Función de Pérdida Híbrida</h2>
-<p>Las funciones de pérdida MSE o L1 estándar a menudo producen resultados borrosos debido a la regresión a la media. Para lograr texturas nítidas de alta fidelidad, diseñé una función de pérdida híbrida personalizada, aqui las posiblidades se disparan se puede usar cualquier modelo de embeddings para comparar los resutlados, por ejemplo para rejuveneciemitos se pueden usar modelos que predigan la edad y usarlos como parte de la funcion de perdida:</p>
+<p>Las funciones de pérdida MSE o L1 estándar a menudo producen resultados borrosos debido a la regresión a la media. Para lograr texturas nítidas de alta fidelidad, diseñé una función de pérdida híbrida personalizada, aqui las posiblidades se disparan se puede usar cualquier modelo de embeddings para comparar los resutlados, por ejemplo para rejuveneciemitos se pueden usar modelos que predigan la Age y usarlos como parte de la funcion de perdida:</p>
 
 <div class="code-block">
     $$L_{total} = \lambda_{1}L_{1} + \lambda_{2}L_{LPIPS} + \lambda_{3}L_{Lap} + \lambda_{4}L_{SSIM}$$

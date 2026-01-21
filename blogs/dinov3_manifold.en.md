@@ -39,4 +39,4 @@
 <p class="subtitle">Currently, I am working on a project to inject these types of direction vectors into a generative pipeline, where semantic control is as fluid as ideology itself.</p>
 
 ---
-<p><em>Inspired by a discussion on the intersection of philosophy and computer vision.</em></p>
+<p><em>Written by Sergio Cespedes.</em></p>

@@ -39,4 +39,4 @@
 <p class="subtitle">Actualmente trabajo en un proyecto para inyectar este tipo de vectores de dirección en un pipeline generativo, donde el control semántico sea tan fluido como la ideología misma.</p>
 
 ---
-<p><em>Inspirado en una discusión sobre la intersección entre filosofía y visión por computador.</em></p>
+<p><em>Escrito por Sergio Cespedes.</em></p>

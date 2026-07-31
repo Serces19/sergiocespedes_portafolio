@@ -55,40 +55,10 @@ export default function Projects() {
     <section id="featured-projects" className="py-24 px-4 bg-white border-y border-slate-200">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
+          <span className="mono-text text-xs uppercase tracking-widest text-cloud-blue font-semibold block mb-2">Featured Work & R&D</span>
           <h2 className="font-title text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
-            Featured Engineering Case Studies & R&D
+            Case Studies & Engineering Projects
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            End-to-end architectures, machine learning models, and production cloud infrastructure built for high data throughput and reproducible performance.
-          </p>
-
-          {/* Interactive Neo-Flat Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <button 
-              onClick={() => setFilter('all')} 
-              className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-            >
-              <span>All Projects</span>
-            </button>
-            <button 
-              onClick={() => setFilter('cv-dl')} 
-              className={`filter-btn ${filter === 'cv-dl' ? 'active' : ''}`}
-            >
-              <span>Computer Vision & ML</span>
-            </button>
-            <button 
-              onClick={() => setFilter('cloud')} 
-              className={`filter-btn ${filter === 'cloud' ? 'active' : ''}`}
-            >
-              <span>Cloud & MLOps</span>
-            </button>
-            <button 
-              onClick={() => setFilter('pipeline')} 
-              className={`filter-btn ${filter === 'pipeline' ? 'active' : ''}`}
-            >
-              <span>VFX & Data Pipelines</span>
-            </button>
-          </div>
         </div>
 
         {/* Projects Grid */}

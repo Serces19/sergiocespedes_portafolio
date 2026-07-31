@@ -87,11 +87,17 @@
 
   .accordion-panel {
     flex: 1;
-    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
     border-radius: 1.25rem;
     cursor: pointer;
+  }
+
+  .accordion-panel:not(.active):hover {
+    flex: 1.35;
+    filter: brightness(1.15);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
   }
 
   .accordion-panel.active {
@@ -100,7 +106,11 @@
 
   .accordion-panel .collapsed-content {
     opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .accordion-panel:not(.active):hover .collapsed-content {
+    transform: scale(1.04);
   }
 
   .accordion-panel.active .collapsed-content {

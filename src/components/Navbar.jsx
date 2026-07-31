@@ -24,11 +24,13 @@ export default function Navbar() {
           
           {/* Logo & Branding */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img 
-              src="/assets/logo_scope.png" 
-              alt="Sergio Céspedes Logo" 
-              className="h-9 w-9 rounded-full object-cover border border-slate-200 group-hover:border-cloud-blue transition-colors"
-            />
+            <div className="w-10 h-10 rounded-full bg-slate-900 border border-slate-700/80 p-1 flex items-center justify-center shadow-sm group-hover:border-cloud-blue transition-colors shrink-0 overflow-hidden">
+              <img 
+                src="/assets/logo_scope.png" 
+                alt="Sergio Céspedes Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
             <div className="flex flex-col">
               <span className="font-title font-bold text-slate-900 text-base md:text-lg leading-tight group-hover:text-cloud-blue transition-colors">
                 Sergio Céspedes
@@ -76,7 +78,7 @@ export default function Navbar() {
               to="/articles" 
               className={`hover:text-cloud-blue transition-colors ${location.pathname === '/articles' ? 'text-cloud-blue font-semibold' : ''}`}
             >
-              Articles & Notes
+              Articles
             </Link>
           </nav>
 
@@ -175,7 +177,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
             className="block py-2 text-base font-semibold text-cloud-blue"
           >
-            Articles & Notes
+            Articles
           </Link>
           <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
             <a 

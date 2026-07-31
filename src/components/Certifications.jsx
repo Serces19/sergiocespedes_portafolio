@@ -2,12 +2,15 @@ export default function Certifications() {
   return (
 <section id="certifications" className="py-24 px-4 bg-slate-50 border-t border-slate-200">
         <div className="max-w-6xl mx-auto">
-            <h3 className="font-title text-2xl md:text-4xl font-bold text-center mb-3 text-slate-900 tracking-tight">
-                Academic & Professional Credentials
-            </h3>
-            <p className="text-slate-600 text-center text-sm mb-14 max-w-xl mx-auto">
-                Verified specializations in Machine Learning, Cloud Architecture, and Data Science from world-class institutions.
-            </p>
+        <div className="text-center mb-12">
+          <span className="mono-text text-xs uppercase tracking-widest text-cloud-blue font-semibold block mb-2">Verified Qualifications</span>
+          <h2 className="font-title text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+            Academic & Professional Credentials
+          </h2>
+          <p className="text-slate-600 text-base max-w-xl mx-auto">
+            Verified specializations in Machine Learning, Cloud Architecture, and Data Science from world-class institutions.
+          </p>
+        </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 

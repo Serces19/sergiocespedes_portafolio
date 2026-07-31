@@ -2,12 +2,15 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 px-4 bg-slate-50 border-t border-slate-200 overflow-hidden">
       <div className="max-w-5xl mx-auto">
-        <h2 className="font-title text-3xl md:text-5xl font-bold text-center mb-4 text-slate-900 tracking-tight">
-          Professional Experience
-        </h2>
-        <p className="text-slate-600 text-center text-base mb-20 max-w-xl mx-auto">
-          Track record in studio pipeline engineering, high-throughput cloud workflows, and data automation.
-        </p>
+        <div className="text-center mb-12">
+          <span className="mono-text text-xs uppercase tracking-widest text-cloud-blue font-semibold block mb-2">Career Track Record</span>
+          <h2 className="font-title text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+            Professional Experience
+          </h2>
+          <p className="text-slate-600 text-base max-w-xl mx-auto">
+            Track record in studio pipeline engineering, high-throughput cloud workflows, and data automation.
+          </p>
+        </div>
 
         {/* Vertical Timeline Container */}
         <div className="relative border-l-2 border-slate-200 ml-4 lg:ml-64 space-y-16">

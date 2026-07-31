@@ -365,4 +365,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Contact Accordion Controller (Screenshot-Inspired) ---
+    const accordionPanels = document.querySelectorAll('.accordion-panel');
+    const accordionWrapper = document.querySelector('.accordion-wrapper');
+
+    if (accordionPanels.length > 0) {
+        function setActivePanel(panelToActivate) {
+            accordionPanels.forEach(panel => {
+                if (panel === panelToActivate) {
+                    panel.classList.add('active');
+                } else {
+                    panel.classList.remove('active');
+                }
+            });
+        }
+
+        accordionPanels.forEach(panel => {
+            panel.addEventListener('mouseenter', () => setActivePanel(panel));
+            panel.addEventListener('click', () => setActivePanel(panel));
+        });
+
+        if (accordionWrapper) {
+            accordionWrapper.addEventListener('mouseleave', () => {
+                setActivePanel(accordionPanels[0]); // Return to Form (Panel 1)
+            });
+        }
+    }
 });

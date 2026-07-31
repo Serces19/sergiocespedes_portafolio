@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-accent: #ffcf32;
+  --color-accent-light: #ffe066;
+  --color-accent-dark: #e6b800;
+  --color-cloud-blue: #007acc;
+  --color-cloud-light: #38bdf8;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-title: "Space Grotesk", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+/* Custom Utilities */
+
+.writing-vertical {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+.mono-text {
+  font-family: var(--font-mono);
+}
+
+.neo-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  border-radius: 1rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neo-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-btn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.filter-btn.active {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.notch-block {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 36px 100%, 0 calc(100% - 36px));
+}
+
+/* Premium Contact Accordion */
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .accordion-wrapper {
+    flex-direction: row;
+    height: 520px;
+  }
+
+  .accordion-panel {
+    flex: 1;
+    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    cursor: pointer;
+  }
+
+  .accordion-panel.active {
+    flex: 4.5;
+  }
+
+  .accordion-panel .collapsed-content {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .accordion-panel.active .collapsed-content {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .accordion-panel .expanded-content {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease 0.1s;
+  }
+
+  .accordion-panel.active .expanded-content {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .accordion-panel {
+    border-radius: 1.25rem;
+  }
+  .accordion-panel .collapsed-content {
+    display: none !important;
+  }
+  .accordion-panel .expanded-content {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: flex !important;
+  }
+}
+

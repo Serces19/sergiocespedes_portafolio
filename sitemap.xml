@@ -20,6 +20,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- VFX Cloud, Pipeline & AI Infrastructure -->
+  <url>
+    <loc>https://sergiocespedes.com/vfx</loc>
+    <lastmod>2026-08-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Projects & Tools -->
   <url>
     <loc>https://sergiocespedes.com/articles.html</loc>

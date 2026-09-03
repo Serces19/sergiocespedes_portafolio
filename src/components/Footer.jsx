@@ -18,11 +18,12 @@ export default function Footer() {
 
         {/* Center Column - Navigation */}
         <div className="flex flex-wrap justify-center gap-6 text-xs font-mono">
-          <a href="#featured-projects" className="hover:text-white transition-colors">Case Studies</a>
-          <a href="#experience" className="hover:text-white transition-colors">Experience</a>
-          <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#certifications" className="hover:text-white transition-colors">Certifications</a>
-          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          <a href="/#featured-projects" className="hover:text-white transition-colors">Case Studies</a>
+          <a href="/#experience" className="hover:text-white transition-colors">Experience</a>
+          <a href="/#about" className="hover:text-white transition-colors">About</a>
+          <a href="/#certifications" className="hover:text-white transition-colors">Certifications</a>
+          <a href="/#contact" className="hover:text-white transition-colors">Contact</a>
+          <Link to="/vfx" className="text-amber-400 hover:text-amber-300 font-semibold transition-colors">VFX Infrastructure</Link>
           <Link to="/articles" className="text-cloud-blue hover:text-sky-300 transition-colors">Articles</Link>
         </div>
 

@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Projects() {
-  const [filter, setFilter] = useState('all');
+  const [filter] = useState('all');
 
   const projects = [
     {
       id: 'dinov3_manifold',
       title: 'DINOv3 Latent Space Geometry & Manifold Audit',
       description: 'Deep dive into self-supervised Vision Transformers (DINOv3). Auditing how high-dimensional feature spaces map non-linear manifolds such as human facial aging and subtle image attributes.',
-      image: '/assets/cover_manifold_dino.png',
+      image: '/assets/2.png',
       categories: ['cv-dl'],
       link: '/blog/dinov3_manifold',
       linkText: 'Read Case Study',
@@ -17,19 +17,19 @@ export default function Projects() {
     },
     {
       id: 'deadline_cloud',
-      title: 'AWS Deadline Cloud & Distributed GPU Orchestration',
-      description: 'Architecting hybrid cloud infrastructure on AWS for render farms and scalable GPU machine learning workloads. Implementing automated farm queues, storage caching, and cost-effective spot fleets.',
-      image: '/assets/render.jpg',
+      title: 'AWS Deadline Cloud & Nuke CopyCat: De-Aging at Scale',
+      description: 'Production case study for Netflix\'s "El Otro Padre": Scaling multi-GPU Nuke CopyCat de-aging training and sequence rendering on AWS, slashing hardware costs by ~50%.',
+      image: '/assets/deadline_pictures/worker_dashboard.jpg',
       categories: ['cloud', 'pipeline'],
       link: '/blog/blog_deadline_cloud',
-      linkText: 'Read Architecture Guide',
+      linkText: 'Read Production Case Study',
       colorClass: 'text-cloud-blue hover:text-blue-700'
     },
     {
       id: 'vfx_pipeline',
       title: 'High-Fidelity Few-Shot VFX Neural Compositing',
       description: 'Engineering a hybrid U-Net neural architecture with perceptual and structural loss functions. Designed to deliver high-fidelity VFX matting & compositing with minimal training samples.',
-      image: '/assets/vfx_pipeline_header.png',
+      image: '/assets/logo_black.png',
       categories: ['cv-dl', 'pipeline'],
       link: '/blog/blog_vfx_pipeline',
       linkText: 'Read Deep Tech Article',
@@ -39,7 +39,7 @@ export default function Projects() {
       id: 'ayon',
       title: 'Enterprise Pipeline Data & Asset Automation (AYON)',
       description: 'Building open pipeline workflows for Netflix and Amazon Prime scale data productions. Automating asset tracking, shot ingestion, multi-department publisher scripts, and database metadata sync.',
-      image: '/assets/cloud2.jpg',
+      image: '/assets/ayon.png',
       categories: ['pipeline', 'cloud'],
       link: '/blog/blog_ayon',
       linkText: 'Read Workflow Study',

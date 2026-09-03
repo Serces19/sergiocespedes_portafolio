@@ -80,6 +80,16 @@ export default function Navbar() {
             >
               Articles
             </Link>
+            <Link 
+              to="/vfx" 
+              className={`transition-all px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider ${
+                location.pathname === '/vfx' 
+                  ? 'bg-amber-400 text-slate-950 shadow-sm' 
+                  : 'bg-slate-900 hover:bg-slate-800 text-amber-300 border border-slate-700'
+              }`}
+            >
+              VFX Infra
+            </Link>
           </nav>
 
           {/* Right Action Icons (GitHub, LinkedIn) */}
@@ -178,6 +188,13 @@ export default function Navbar() {
             className="block py-2 text-base font-semibold text-cloud-blue"
           >
             Articles
+          </Link>
+          <Link 
+            to="/vfx" 
+            onClick={() => setIsOpen(false)}
+            className={`block py-2 text-base font-bold ${location.pathname === '/vfx' ? 'text-amber-500' : 'text-amber-600 hover:text-amber-500'}`}
+          >
+            ⚡ VFX Infrastructure
           </Link>
           <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
             <a 

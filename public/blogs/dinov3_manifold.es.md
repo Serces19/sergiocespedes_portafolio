@@ -1,42 +1,61 @@
-<h1>El Manifold y la Ideología de lo Real</h1> 
-<p class="subtitle">Explorando cómo DINOv3 mapea la geometría de la edad</p>
+# El Manifold y la Ideología de lo Real: Geometría Latente en DINOv3
 
-<div class="iframe-container" style="width: 100%; height: 500px; margin: 2rem 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+<p class="subtitle">Explorando cómo los Vision Transformers autosupervisados (DINOv3) mapean la geometría de la edad y manifolds de características no lineales.</p>
+
+<div class="iframe-container" style="width: 100%; height: 500px; margin: 2rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
     <iframe src="/assets/grafico_pca3d.html" style="width: 100%; height: 100%; border: none;"></iframe>
 </div>
 
-<p>El concepto más "zizekiano" que he encontrado en el Deep Learning es, sin duda, el <strong>Manifold</strong>.</p>
+El concepto más "zizekiano" en Deep Learning es, sin duda, el **Manifold**.
 
-<p>Como diría Slavoj Zizek, lo <i>Real</i> es un caos inabarcable, una sopa de datos pura y traumática. Sin embargo, sobre ese caos construimos una serie de ficciones que estructuran nuestra realidad y le dan sentido; a esto lo llamamos <strong>ideología</strong>. En el mundo del aprendizaje profundo, esa estructura subyacente es el Manifold. Aunque una imagen viva en un espacio de miles de dimensiones, su esencia conceptual a menudo puede simplificarse a unas pocas dimensiones clave. La ideología del modelo es lo que nos permite navegar el caos de los píxeles con coherencia semántica.</p>
-
-<h2>¿Es la Edad un Vector en DINOv3?</h2>
-<p>Para explorar el manifold en modelos de visión modernos como DINOv3, elaboré un dataset propio con imágenes de una misma persona en distintas etapas de su vida, desde los 18 hasta los 100 años. Mi objetivo era observar cómo el modelo representa el concepto de edad en un rostro.</p>
-
-<p>En el Deep Learning clásico, solia asumir que los atributos semánticos son vectores lineales. Sin embargo, la realidad geométrica suele ser más compleja y curva, por eso decidi simplificar y usar PCA con una sola dimension.</p>
-
-<h2>Auditoría en DINOv3: El Eje del Tiempo</h2>
-<p>Al extraer los embeddings del sujeto y graficar sus representaciones usando PCA, el resultado fue revelador</p>
-
-<img src="../assets/1.png" alt="Gráfica PCA mostrando la trayectoria de edad" class="blog-image">
-
-<p>Como se observa en el <strong>Gráfico 1</strong>, existe una línea que atrapa la gran mayoría de la variación en las imágenes. Esta dirección representa puramente la edad, separando la identidad del cambio temporal. DINOv3 no solo ve píxeles, ve la estructura subyacente del envejecimiento humano como una dimensión navegable.</p>
-
-<h2>Generalización Zero-Shot</h2>
-<p>Una vez identificada esta dirección de la edad en el dataset curado, realicé un experimento de proyección <i>Zero-Shot</i>. Proyecté fotos de personas totalmente nuevas que el modelo nunca había visto sobre este eje conceptual.</p>
-
-<img src="../assets/2.png" alt="Alineación de nuevos sujetos en el eje de edad 1D" class="blog-image">
-
-<p>El resultado (<strong>Gráfico 2</strong>) fue una alineación casi perfecta. Sin entrenar un clasificador específico, simplemente usando operaciones geométricas simples sobre el Manifold, logramos una aproximación robusta de la edad de cualquier persona. El modelo ha universalizado el concepto.</p>
-
-<h2>Validación con UTKFace</h2>
-<p>Para ver como se comporta Divo3, sometí los embeddings del dataset UTKFace con miles de rostros diversos a la misma lógica en 1D. Al visualizar los resultados junto al PCA anterior, encontré una correlación asombrosa. A pesar de la enorme diversidad de iluminación, pose e identidad, la estructura latente de la edad se mantenía consistente. La "ficción" del Manifold es, en efecto, más fuerte que la variedad de lo Real.</p>
-
-<img src="../assets/4.png" alt="Alineación de nuevos sujetos en el eje de edad 1D" class="blog-image">
-
-<h2>Más allá de los datos</h2>
-<p>Así como Žižek nos invita a mirar más allá de lo evidente para entender las estructuras que nos gobiernan, el Manifold nos recuerda que el Deep Learning funciona porque descubre y aprovecha estas jerarquías subyacentes. Entender la geometría de estos espacios no es solo teoría, es la clave para diseñar modelos más creativos, precisos y sobre todo profundos.</p>
-
-<p class="subtitle">Actualmente trabajo en un proyecto para inyectar este tipo de vectores de dirección en un pipeline generativo, donde el control semántico sea tan fluido como la ideología misma.</p>
+Como argumentaría Slavoj Žižek, lo *Real* es un caos inabarcable, una sopa pura y traumática de datos sensoriales crudos. Sin embargo, sobre ese caos construimos ficciones estructurales que organizan nuestra realidad y le dan sentido semántico: a esto lo llamamos ideología. En el mundo del aprendizaje profundo, esa estructura subyacente es el Manifold. Aunque una imagen viva en un espacio matemático de millones de dimensiones de píxeles, su esencia conceptual a menudo puede comprimirse en unas pocas dimensiones continuas. La geometría latente del modelo nos permite navegar el caos de píxeles con coherencia semántica.
 
 ---
-<p><em>Escrito por Sergio Cespedes.</em></p>
+
+## 1. ¿Es la Edad un Vector Navegable en DINOv3?
+
+Para explorar cómo se comporta el manifold en modelos fundacionales de visión modernos como **DINOv3** de Meta, elaboré un dataset especializado con retratos de alta resolución de un mismo sujeto a lo largo de las distintas etapas de su vida, desde los 18 hasta los 100 años. El objetivo era observar cómo las representaciones visuales autosupervisadas estructuran el concepto biológico de la edad sin entrenamiento supervisado explícito.
+
+En el Deep Learning clásico, solía asumirse que los atributos semánticos forman vectores euclidianos lineales. Sin embargo, la realidad perceptual de alta dimensionalidad es curva y riemanniana. Para aislar la dirección principal de variación, extraje los embeddings del vision transformer y apliqué Análisis de Componentes Principales (PCA).
+
+---
+
+## 2. DINOv3 y el Eje Principal de Edad
+
+Al extraer los embeddings del sujeto en el tiempo y proyectarlos en el subespacio de componentes principales, la geometría fue evidente.
+
+<img src="/assets/1.png" alt="Gráfica PCA mostrando la trayectoria de edad" class="blog-image">
+
+Como se observa en el **Gráfico 1**, una trayectoria continua captura la gran mayoría de la variación direccional. Esta componente principal aísla limpiamente la edad biológica, desacoplando la identidad del cambio temporal. DINOv3 no solo detecta píxeles; construye un manifold suave y navegable del envejecimiento humano.
+
+---
+
+## 3. Generalización Zero-Shot y Proyecciones Fuera de Distribución
+
+Una vez aislada esta dirección de edad en el dataset curado, realicé un experimento de **proyección Zero-Shot**. Sujetos de prueba completamente nuevos —identidades que el modelo jamás había visto— fueron proyectados sobre este eje geométrico 1D.
+
+<img src="/assets/2.png" alt="Alineación de nuevos sujetos en el eje de edad 1D" class="blog-image">
+
+El resultado (**Gráfico 2**) demostró una monotonicidad temporal casi perfecta. Sin entrenar un solo clasificador ni ajustar los pesos del backbone, la simple proyección sobre el vector del manifold proporcionó una estimación robusta y continua de la edad facial en identidades no vistas.
+
+---
+
+## 4. Validación con Benchmark Masivo: UTKFace
+
+Para validar rigurosamente que esto no fuera un artefacto del dataset, evalué la misma lógica de proyección en miles de rostros diversos del benchmark público **UTKFace**.
+
+<img src="/assets/4.png" alt="Validación con UTKFace dataset" class="blog-image">
+
+A pesar de la enorme diversidad de iluminación, óptica de cámara, pose, etnia y ruido de fondo, la trayectoria latente de la edad se mantuvo consistente. La estructura geométrica descubierta por el preentrenamiento autosupervisado demostró ser altamente generalizable.
+
+---
+
+## 5. Implicaciones para VFX y Composición Neuronal
+
+Comprender la geometría del manifold es fundamental para los pipelines de efectos visuales de próxima generación:
+- **Inpainting y Rejuvenecimiento Condicionado:** Al navegar a lo largo de vectores aislados del manifold, los artistas pueden guiar modelos de difusión generativa o inpainters U-Net para modificar atributos semánticos específicos sin alterar los rasgos identitarios del actor.
+- **Guía Neuronal Few-Shot:** Elimina la necesidad de datasets masivos de fine-tuning por plano, permitiendo manipulación semántica zero-shot ultrarrápida.
+
+---
+
+*Escrito por Sergio Céspedes — Cloud Architect, VFX Pipeline TD & Machine Learning Engineer.*

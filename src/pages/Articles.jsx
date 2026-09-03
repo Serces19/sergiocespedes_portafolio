@@ -6,9 +6,9 @@ export default function Articles() {
   const articlesList = [
     {
       slug: 'blog_deadline_cloud',
-      title: 'Setting Up Deadline Render Farm',
-      description: 'A comprehensive guide to implementing and configuring Deadline for optimal rendering performance in a VFX pipeline',
-      image: '/assets/render.jpg',
+      title: 'AWS Deadline Cloud & Nuke CopyCat: De-Aging at Scale',
+      description: 'Production case study for Netflix\'s "El Otro Padre": Scaling multi-GPU Nuke CopyCat de-aging training and sequence rendering on AWS, slashing hardware costs by ~50%.',
+      image: '/assets/deadline_pictures/worker_dashboard.jpg',
       borderColor: 'border-accent/20',
       hoverColor: 'group-hover:text-amber-500',
       linkColor: 'text-amber-500 hover:text-amber-600'
@@ -25,8 +25,8 @@ export default function Articles() {
     {
       slug: 'blog_vfx_pipeline',
       title: 'Beyond CopyCat: Engineering a High-Fidelity Few-Shot VFX Pipeline',
-      description: 'Deep dive into hybrid loss functions, U-Net architecture optimization, and cloud orchestration for SOTA VFX results with limited resources',
-      image: '/assets/vfx_pipeline_header.png',
+      description: 'Deep dive into hybrid loss functions, U-Net architecture optimization, and cloud orchestration — the research journey behind Vectorescope.',
+      image: '/assets/logo_black.png',
       borderColor: 'border-purple-500/30',
       hoverColor: 'group-hover:text-purple-600',
       linkColor: 'text-purple-600 hover:text-purple-700'
@@ -35,7 +35,7 @@ export default function Articles() {
       slug: 'dinov3_manifold',
       title: 'The Manifold and the Ideology of the Real: DINOv3 Latent Space Geometry',
       description: 'Exploring how self-supervised Vision Transformers (DINOv3) map the geometry of facial age and non-linear feature manifolds.',
-      image: '/assets/cover_manifold_dino.png',
+      image: '/assets/2.png',
       borderColor: 'border-blue-500/30',
       hoverColor: 'group-hover:text-blue-600',
       linkColor: 'text-blue-600 hover:text-blue-700'
@@ -44,7 +44,7 @@ export default function Articles() {
       slug: 'blog_ayon',
       title: 'Building with Ayon (OpenPype)',
       description: 'Deep dive into pipeline development using Ayon, formerly known as OpenPype, for efficient asset management and studio automation.',
-      image: '/assets/machine.jpg',
+      image: '/assets/ayon.png',
       borderColor: 'border-amber-500/20',
       hoverColor: 'group-hover:text-amber-600',
       linkColor: 'text-amber-600 hover:text-amber-700'

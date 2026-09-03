@@ -37,7 +37,7 @@ export default function Projects() {
     },
     {
       id: 'ayon',
-      title: 'Enterprise Pipeline Data & Asset Automation (AYON)',
+      title: 'Pipeline Track (AYON)',
       description: 'Building open pipeline workflows for Netflix and Amazon Prime scale data productions. Automating asset tracking, shot ingestion, multi-department publisher scripts, and database metadata sync.',
       image: '/assets/ayon.png',
       categories: ['pipeline', 'cloud'],

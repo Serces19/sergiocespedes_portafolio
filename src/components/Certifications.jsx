@@ -34,7 +34,7 @@ export default function Certifications() {
                             <h4 className="font-title font-bold text-slate-900 text-lg mb-1">Cloud Solutions Architecture</h4>
                             <p className="text-xs font-semibold text-cloud-blue uppercase tracking-wider mb-3">AWS Certified</p>
                             <p className="text-slate-600 text-xs leading-relaxed mb-4">
-                                Enterprise Cloud Infrastructure, AWS Deadline Cloud Render Farm Clusters & MLOps Pipelines.
+                                Cloud Infrastructure, AWS Deadline Cloud Render Farm Clusters & MLOps Pipelines.
                             </p>
                         </div>
                     </div>

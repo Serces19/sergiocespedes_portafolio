@@ -374,7 +374,7 @@ export default function VfxNodeFlow() {
             <span className="mono-text text-[10px] text-cloud-light font-bold uppercase">Node 03</span>
           </div>
           <p className="text-slate-400 text-xs leading-relaxed mb-4">
-            Headless ComfyUI tensor graphs & auto-scaling spot GPU clusters (g6 / g4dn).
+            Headless ComfyUI tensor graphs & auto-scaling spot GPU clusters (16 - 96 VRAM).
           </p>
 
           {/* Floating Image Preview */}

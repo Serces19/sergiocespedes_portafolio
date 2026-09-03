@@ -4,35 +4,38 @@ This file tracks all completed tasks, in-progress activities, and future technic
 
 ---
 
-## 🚀 Active Roadmap: VFX Landing Page (`/vfx`)
+## 🚀 Active Roadmap: Production Realities Swiss Minimalist Layout (`VfxProblemBento.jsx`)
 
-- [x] **ComfyUI-Style Floating Previews in Node Graph (`VfxNodeFlow.jsx`)**
-  - [x] Integrated floating image preview cards around each primary node inspired by ComfyUI's node graph UI:
-    - [x] **Node 1 (DCC Ingestion)**: Attached floating ComfyUI preview card with an interactive switcher for **Nuke Multi-Pass Comp** (`/assets/vfx/nuke_ui.png`) and **Blender 3D Viewport** (`/assets/vfx/blender_ui.jpg`).
-    - [x] **Node 2 (Pipeline & Agents)**: Attached floating ComfyUI preview card for **AYON Asset Tree & Manifest** (`/assets/vfx/ayon.png`).
-    - [x] **Node 3 (AWS Deadline & AI Farm)**: Attached floating ComfyUI preview card for **ComfyUI Headless Tensor Graph Execution** (`/assets/comfyui.jpg`).
-  - [x] Designed with authentic ComfyUI node headers (status indicator LED, pass name, node tag) and high-resolution thumbnail containers.
-  - [x] Responsive layout: full vector SVG layout on desktop (`lg:`) and stacked preview cards on mobile/tablet.
-
-- [x] **Streamlining & Redundancy Removal**
-  - [x] Removed redundant Capability 03 ("Pipeline Engineering: Nuke, AYON, Houdini & Blender") from `VfxCapabilities.jsx`, concentrating its visual assets directly into the dynamic node graph.
-  - [x] Removed redundant Section 03 ("Architecture Models: Local, Cloud, Hybrid").
-  - [x] Cleaned up section numbers sequentially.
-
-- [x] **Elimination of Harsh Thin Light Borders & Nested Box Clutter**
-  - [x] Removed wireframe borders across all sections, shifting to deep dark surfaces with subtle ambient glow and shadows.
-
-- [x] **Modular Architecture Refactor (`src/components/vfx/`)**
-  - [x] Subcomponents: `VfxHero`, `VfxProblemBento`, `VfxCapabilities`, `VfxAiPipelinePatterns`, `VfxNodeFlow`, `VfxVectorescopeCta`, `VfxDifferentiator`, `VfxEngagements`.
+- [x] **Radical Simplification & Editorial Presentation**
+  - [x] Adapted layout directly from reference image (`media_1788467339207.png`).
+  - [x] **Top Meta Bar**: Editorial metadata header (`@SERGIO CÉSPEDES`, `Section 01 / Production Realities`, `2026`).
+  - [x] **Top Row (3 Columns)**:
+    - [x] **Visual Container**: Rounded wide showcase container with DCC production render asset (`/assets/vfx/blender_ui.jpg`).
+    - [x] **Card (01)**: Clean white card, `Peak Farm Limits` — *Render bursts quickly overwhelm on-premise hardware during crunch, turning delivery deadlines into high-risk bottlenecks.*
+    - [x] **Card (02)**: High-impact Amber accent card, `The AI Workflow Gap` — *Experimental models fail under delivery pressure. AI needs deterministic pipeline plumbing and native DCC integration.*
+  - [x] **Bottom Row**:
+    - [x] **Massive Left Headline**: *"Infrastructure Friction Slows Down Creative Delivery"* (`text-4xl sm:text-5xl md:text-6xl font-black`).
+    - [x] **Right Squircle Badge Card**: Dark squircle with golden symbol (`✱`) and 2-line takeaway covering Zero-Trust Security & Invisible Operations.
+- [x] **Zero Walls of Text**:
+  - [x] Transmits the full technical message with high brevity and senior-level credibility.
 
 ---
 
-## 📝 Case Studies & Content Systems
+## 🚀 Flexible Engagement Models & Cal.com Booking Engine
 
-- [x] **Blog Cover Images & Media Updates**
-- [x] **Netflix's "El Otro Padre" — Nuke CopyCat De-Aging Case Study**
-- [x] **Vectorescope Foundation Story (Few-Shot VFX Article)**
-- [x] **Online Disconnected / Empty Article Fix**
+- [x] **Full-Width Atmospheric Background (`bg_sky.jpg`)**
+- [x] **Elimination of Wireframe Borders in Engagement Models & Booking Banner**
+- [x] **Typography & Visual Hierarchy Overhaul** (large bold category numbers and titles).
+- [x] **Official Cal.com Embed Integration** (`sergio-cespedes-1zpejv/20min` in dark mode).
+
+---
+
+## 🚀 Contact System & Form Handling
+
+- [x] **Formspree Error Fix & Async React Form Engine (`Contact.jsx`)**
+  - [x] Asynchronous React handler (`handleSubmit`) with state management.
+  - [x] One-click fallback directly to `mailto:sergio@vectorescope.com`.
+  - [x] Restored `activePanel` state.
 
 ---
 

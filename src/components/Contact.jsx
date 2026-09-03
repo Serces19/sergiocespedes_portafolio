@@ -1,7 +1,72 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getCalApi } from '@calcom/embed-react';
 
 export default function Contact() {
   const [activePanel, setActivePanel] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [submitStatus, setSubmitStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: '20min' });
+      cal('ui', {
+        theme: 'dark',
+        hideEventTypeDetails: false,
+        layout: 'month_view'
+      });
+    })();
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitStatus('submitting');
+    setErrorMessage('');
+
+    // Formspree endpoint (can be customized via VITE_FORMSPREE_ID or VITE_FORMSPREE_ENDPOINT)
+    const formId = import.meta.env.VITE_FORMSPREE_ID || 'mqakvjbe';
+    const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT || `https://formspree.io/f/${formId}`;
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          _replyto: formData.email,
+          subject: formData.subject || 'New inquiry from Portfolio',
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || 'Formspree form ID not found or inactive');
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setSubmitStatus('error');
+      setErrorMessage(err.message || 'Error submitting form');
+    }
+  };
+
+  const mailtoFallbackUrl = `mailto:sergio@vectorescope.com?subject=${encodeURIComponent(formData.subject || 'Project Inquiry / Consultation')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
 
   return (
 <section id="contact" className="py-24 px-4 bg-slate-900 text-white border-t border-slate-800">
@@ -11,10 +76,6 @@ export default function Contact() {
                 <h2 className="font-title text-3xl md:text-5xl font-bold text-white mt-2 mb-4 tracking-tight">
                     Contact Channels
                 </h2>
-                <p className="text-slate-400 text-sm max-w-xl mx-auto flex items-center justify-center gap-2">
-                    <span className="w-2 h-2 bg-cloud-blue rounded-full animate-ping"></span>
-                    <span>Click any channel below to expand details and direct action links.</span>
-                </p>
             </div>
 
             {/* Accordion Wrapper */}
@@ -44,33 +105,117 @@ export default function Contact() {
                                     <span className="mono-text text-xs text-amber-400 font-semibold uppercase">Channel 01</span>
                                     <h3 className="font-title text-2xl font-bold text-white mt-0.5">Send a Direct Message</h3>
                                 </div>
+                                <button
+                                    type="button"
+                                    data-cal-namespace="20min"
+                                    data-cal-link="sergio-cespedes-1zpejv/20min"
+                                    className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-400/15 hover:bg-amber-400 text-amber-300 hover:text-slate-950 text-xs mono-text font-bold transition-all cursor-pointer shadow-md"
+                                >
+                                    <span>Book a Call (20 min)</span>
+                                </button>
                             </div>
 
-                            <form action="https://formspree.io/f/mqakvjbe" method="POST" id="contact-form" className="space-y-3">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    <div>
-                                        <label htmlFor="name" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Your Name</label>
-                                        <input type="text" id="name" name="name" required placeholder="Sergio Cespedes" className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs" />
+                            {submitStatus === 'success' ? (
+                                <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
+                                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-xl">
+                                        ✓
+                                    </div>
+                                    <h4 className="font-title text-lg font-bold text-white">Message Sent Successfully!</h4>
+                                    <p className="text-slate-300 text-xs leading-relaxed max-w-md mx-auto">
+                                        Thank you for reaching out. I have received your message and will get back to you shortly.
+                                    </p>
+                                    <button 
+                                        onClick={() => setSubmitStatus('idle')}
+                                        className="mt-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 mono-text cursor-pointer transition-colors"
+                                    >
+                                        Send Another Message
+                                    </button>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} id="contact-form" className="space-y-3">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <div>
+                                            <label htmlFor="name" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Your Name</label>
+                                            <input 
+                                                type="text" 
+                                                id="name" 
+                                                name="name" 
+                                                required 
+                                                value={formData.name}
+                                                onChange={handleChange}
+                                                placeholder="Sergio Cespedes" 
+                                                className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs" 
+                                            />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="email" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Your Email</label>
+                                            <input 
+                                                type="email" 
+                                                id="email" 
+                                                name="email" 
+                                                required 
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                placeholder="name@example.com" 
+                                                className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs" 
+                                            />
+                                        </div>
                                     </div>
                                     <div>
-                                        <label htmlFor="email" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Your Email</label>
-                                        <input type="email" id="email" name="_replyto" required placeholder="name@example.com" className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs" />
+                                        <label htmlFor="subject" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Subject</label>
+                                        <input 
+                                            type="text" 
+                                            id="subject" 
+                                            name="subject" 
+                                            value={formData.subject}
+                                            onChange={handleChange}
+                                            placeholder="Project Inquiry / Pipeline Infrastructure" 
+                                            className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs" 
+                                        />
                                     </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="subject" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Subject</label>
-                                    <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Research Collaboration" className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs" />
-                                </div>
-                                <div>
-                                    <label htmlFor="message" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Message</label>
-                                    <textarea id="message" name="message" rows="3" required placeholder="Tell me more about your technical requirements..." className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs resize-none"></textarea>
-                                </div>
-                                <input type="hidden" name="_subject" value="New inquiry from Portfolio" />
-                                <button type="submit" className="w-full py-3.5 bg-cloud-blue hover:bg-blue-600 text-white font-bold rounded-xl transition-all shadow-md text-xs uppercase tracking-wider">
-                                    Send Message Now
-                                </button>
-                            </form>
-                            <div id="form-status" className="hidden mt-3 p-3 rounded-xl text-xs font-medium text-center"></div>
+                                    <div>
+                                        <label htmlFor="message" className="block text-xs font-semibold text-slate-300 mb-1 mono-text">Message</label>
+                                        <textarea 
+                                            id="message" 
+                                            name="message" 
+                                            rows="3" 
+                                            required 
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            placeholder="Tell me more about your technical requirements..." 
+                                            className="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 text-white rounded-xl focus:outline-none focus:border-cloud-blue text-xs resize-none"
+                                        ></textarea>
+                                    </div>
+
+                                    {submitStatus === 'error' && (
+                                        <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs space-y-2">
+                                            <div className="font-semibold flex items-center gap-1.5">
+                                                <span>⚠️</span>
+                                                <span>Formspree Service Notice: {errorMessage}</span>
+                                            </div>
+                                            <p className="text-[11px] text-slate-400">
+                                                The Formspree form ID is not configured or has expired. You can click below to send this exact message directly via your email client to <strong>sergio@vectorescope.com</strong>:
+                                            </p>
+                                            <a 
+                                                href={mailtoFallbackUrl}
+                                                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition-colors"
+                                            >
+                                                <span>Open Email Client Directly</span>
+                                                <span>→</span>
+                                            </a>
+                                        </div>
+                                    )}
+
+                                    <button 
+                                        type="submit" 
+                                        disabled={submitStatus === 'submitting'}
+                                        className="w-full py-3.5 bg-cloud-blue hover:bg-blue-600 disabled:opacity-60 text-white font-bold rounded-xl transition-all shadow-md text-xs uppercase tracking-wider cursor-pointer"
+                                    >
+                                        {submitStatus === 'submitting' ? 'Sending Message...' : 'Send Message Now'}
+                                    </button>
+
+                                </form>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -219,9 +364,9 @@ export default function Contact() {
                             <div className="p-4 bg-amber-300/90 rounded-2xl border border-amber-500/40 max-w-sm flex items-center justify-between min-w-0">
                                 <div className="min-w-0 flex-1 pr-2">
                                     <span className="mono-text text-xs text-amber-900 block mb-0.5">Email Inbox</span>
-                                    <span className="font-title text-lg font-bold text-slate-950 truncate block" title="serces19@gmail.com">serces19@gmail.com</span>
+                                    <span className="font-title text-lg font-bold text-slate-950 truncate block" title="sergio@vectorescope.com">sergio@vectorescope.com</span>
                                 </div>
-                                <button className="copy-btn px-3 py-2 bg-slate-950 hover:bg-slate-900 text-amber-400 rounded-lg flex-shrink-0 transition-colors text-xs font-semibold flex items-center gap-1" onClick={() => navigator.clipboard.writeText('serces19@gmail.com')} title="Copy Email">
+                                <button className="copy-btn px-3 py-2 bg-slate-950 hover:bg-slate-900 text-amber-400 rounded-lg flex-shrink-0 transition-colors text-xs font-semibold flex items-center gap-1" onClick={() => navigator.clipboard.writeText('sergio@vectorescope.com')} title="Copy Email">
                                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
                                     <span>Copy</span>
                                 </button>
@@ -229,9 +374,9 @@ export default function Contact() {
                         </div>
 
                         <div className="relative z-10 pt-6">
-                            <a href="mailto:serces19@gmail.com" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-950 hover:bg-slate-900 text-amber-400 font-bold rounded-xl transition-all shadow-lg text-xs uppercase tracking-wider">
+                            <a href="mailto:sergio@vectorescope.com" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-950 hover:bg-slate-900 text-amber-400 font-bold rounded-xl transition-all shadow-lg text-xs uppercase tracking-wider">
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                <span>Send Email to serces19@gmail.com</span>
+                                <span>Send Email to sergio@vectorescope.com</span>
                             </a>
                         </div>
                     </div>

@@ -1,5 +1,3 @@
-import { CheckCircle2 } from 'lucide-react';
-
 export default function VfxCapabilities() {
   return (
     <section id="capabilities" className="py-24 px-4 md:px-8 max-w-6xl mx-auto">
@@ -34,13 +32,10 @@ export default function VfxCapabilities() {
               <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-4">
                 Help studios design and deploy scalable cloud infrastructure for rendering, simulation, GPU workloads, and custom studio microservices. I implement cost-aware architectures that burst to AWS when delivery deadlines demand it, without runaway operational spending.
               </p>
-              <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
-                Whether orchestrating <strong>AWS Deadline Cloud</strong> queues, custom EC2 spot fleets, or containerized workers, the focus is on predictable performance, strict storage caching, and automated teardown.
-              </p>
 
               {/* Tech Pills */}
               <div className="flex flex-wrap gap-2 pt-2">
-                {['AWS Deadline Cloud', 'EC2 GPU Fleets (g6 / g4dn)', 'S3 Asset Sync', 'Docker Containers', 'Terraform IaC', 'Hybrid Cloud Burst', 'Cost-Aware Spot Limits'].map((tech) => (
+                {['AWS Deadline Cloud', 'EC2 GPU Fleets (24- 96 VRAM)', 'S3 Asset Sync', 'Docker Containers', 'Terraform IaC', 'Hybrid Cloud Burst', 'Cost-Aware Spot Limits'].map((tech) => (
                   <span key={tech} className="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-xs mono-text">
                     {tech}
                   </span>
@@ -77,10 +72,6 @@ export default function VfxCapabilities() {
           {/* Architecture Diagram Callout */}
           <div className="mt-6 p-6 rounded-2xl bg-[#080d18] shadow-xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-              <div className="flex items-center gap-2 text-xs mono-text text-cloud-light">
-                <span className="w-2 h-2 rounded-full bg-cloud-blue animate-pulse" />
-                <span className="font-bold uppercase tracking-wider">AWS Deadline Cloud Production Flow</span>
-              </div>
             </div>
             <div className="rounded-xl overflow-hidden bg-white p-2">
               <img 
@@ -148,13 +139,13 @@ export default function VfxCapabilities() {
                   <div className="rounded-xl overflow-hidden mb-6 bg-black">
                     <img 
                       src="/assets/griptape.png" 
-                      alt="Griptape Enterprise AI Orchestration by Foundry" 
+                      alt="Griptape AI Orchestration by Foundry" 
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
                     />
                   </div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-title text-xl font-bold text-white">Griptape from Foundry</span>
-                    <span className="px-2.5 py-0.5 rounded bg-purple-400/10 text-purple-300 text-[10px] mono-text font-bold uppercase">Enterprise Agent Framework</span>
+                    <span className="px-2.5 py-0.5 rounded bg-purple-400/10 text-purple-300 text-[10px] mono-text font-bold uppercase">Agent Framework</span>
                   </div>
                   <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-4">
                     Implemented as the secure orchestration backbone connecting LLMs and vision models with production databases. Leveraging Python and Model Context Protocol (MCP), Griptape empowers autonomous agents to inspect editorial cuts, validate shot manifests, and trigger pipeline operations with strict privacy.
@@ -171,20 +162,6 @@ export default function VfxCapabilities() {
 
             </div>
 
-            {/* Bottom Integration Banner */}
-            <div className="p-6 rounded-2xl bg-[#080d18] shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="w-3 h-3 rounded-full bg-amber-400 shrink-0" />
-                <span className="text-xs text-slate-300 mono-text">
-                  <strong>Unified AI Architecture:</strong> Griptape handles context, permissions, and tool orchestration; ComfyUI executes the heavy multi-GPU generative tensor graph.
-                </span>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <span className="px-3 py-1 rounded-md bg-amber-400/10 text-amber-300 text-xs mono-text font-semibold">
-                  100% Studio-Integrated
-                </span>
-              </div>
-            </div>
 
           </div>
         </div>

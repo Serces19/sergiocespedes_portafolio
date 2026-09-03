@@ -51,7 +51,7 @@ export default function Hero() {
         </p>
 
         <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-xl mb-10 font-normal">
-          Building reproducible deep learning models, AWS cloud infrastructure, and GPU pipelines for high-scale studio production.
+          Building reproducible deep learning models, AWS cloud infrastructure, and GPU pipelines for production.
         </p>
 
         {/* Clean Neo-Flat Buttons */}

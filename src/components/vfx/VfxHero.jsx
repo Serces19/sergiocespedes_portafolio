@@ -1,4 +1,4 @@
-import { ArrowRight, Workflow, ShieldCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function VfxHero({ onScrollToSection }) {
   return (
@@ -38,7 +38,7 @@ export default function VfxHero({ onScrollToSection }) {
             onClick={() => onScrollToSection?.('contact')}
             className="w-full sm:w-auto px-8 py-4 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-2xl shadow-lg shadow-amber-400/15 transition-all flex items-center justify-center gap-3 text-xs uppercase tracking-wider group cursor-pointer"
           >
-            <span>Talk to Sergio</span>
+            <span>Discuss Your Pipeline</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
@@ -46,28 +46,10 @@ export default function VfxHero({ onScrollToSection }) {
             onClick={() => onScrollToSection?.('capabilities')}
             className="w-full sm:w-auto px-8 py-4 bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-bold rounded-2xl border border-white/[0.08] hover:border-amber-400/40 transition-all flex items-center justify-center gap-3 text-xs uppercase tracking-wider cursor-pointer shadow-lg shadow-black/40"
           >
-            <span>See What I Build</span>
+            <span>View Case Studies</span>
           </button>
         </div>
 
-        {/* Core Positioning Statement Banner */}
-        <div className="w-full max-w-4xl p-5 md:p-6 rounded-2xl bg-slate-900/70 border border-white/[0.06] backdrop-blur-md text-left flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center shrink-0 text-amber-400">
-              <Workflow className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="mono-text text-[10px] text-amber-400 font-semibold uppercase tracking-wider block">Core Mandate</span>
-              <p className="text-sm font-medium text-slate-200">
-                I help VFX studios build, migrate, and orchestrate production infrastructure across local and cloud environments.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 mono-text text-xs text-slate-400 border-t md:border-t-0 md:border-l border-white/[0.08] pt-3 md:pt-0 md:pl-6 shrink-0">
-            <ShieldCheck className="w-4 h-4 text-cloud-light" />
-            <span>Studio-Grade Reliability</span>
-          </div>
-        </div>
 
       </div>
     </section>

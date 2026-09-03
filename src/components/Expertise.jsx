@@ -13,7 +13,7 @@ export default function Expertise() {
             </h2>
           </div>
           <p className="text-slate-400 text-sm max-w-md mt-4 md:mt-0 leading-relaxed">
-            Bridging deep learning research with enterprise cloud architecture and high-throughput production pipelines.
+            Bridging deep learning research with cloud architecture and high-throughput production pipelines.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function Expertise() {
                 DATA PIPELINES & AUTOMATION
               </h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-8">
-                Engineering enterprise data pipelines handling terabytes of asset information for high-end studio productions (Netflix & Amazon Prime scale).
+                Engineering data pipelines handling terabytes of asset information for high-end studio productions (Netflix & Amazon Prime scale).
               </p>
             </div>
             <ul className="space-y-2.5 text-xs font-medium text-slate-300 mono-text border-t border-slate-800/80 pt-6">

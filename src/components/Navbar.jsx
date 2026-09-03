@@ -36,7 +36,7 @@ export default function Navbar() {
                 Sergio Céspedes
               </span>
               <span className="font-mono text-[10px] md:text-xs text-slate-500 font-medium">
-                Cloud Architect & TD
+                Cloud Infrastructure for Visual AI
               </span>
             </div>
           </Link>

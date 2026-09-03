@@ -18,7 +18,7 @@ export default function VfxDifferentiator() {
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="font-title text-xl font-bold text-white block">Sergio Céspedes</span>
                 <span className="mono-text text-xs text-amber-300 font-semibold uppercase tracking-wider">
-                  VFX Pipeline TD & ML Engineer
+                  Cloud Infrastructure for Visual AI
                 </span>
               </div>
             </div>
@@ -40,7 +40,7 @@ export default function VfxDifferentiator() {
           </blockquote>
 
           <p className="text-slate-300 text-sm leading-relaxed">
-            Most cloud consultants have never opened Nuke, written an OpenColorIO config, or troubleshot an EXR channel dropout under a tight delivery deadline. Conversely, most VFX artists don't have the time to build Terraform modules, configure AWS IAM roles, or optimize multi-GPU CUDA kernels.
+            Traditional cloud engineering and VFX pipeline engineering are usually treated as separate disciplines. I work across both.I understand the DCC, the pipeline, the compute layer, and the AI systems connecting them.
           </p>
 
         </div>

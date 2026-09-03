@@ -27,4 +27,4 @@ The value proposition emphasizes business outcomes and pipeline reliability:
 6. **Section 05 — Vectorescope**: Discrete related product callout linking to `https://vectorescope.com` for teams needing model training infrastructure.
 7. **Section 06 — Why Sergio**: Narrative differentiator bridging DCC artist reality with cloud & deep learning infrastructure.
 8. **Section 07 — Possible Engagements**: Flexible collaboration models (Architecture Review, Proof of Concept, Implementation, Ongoing Engineering).
-9. **Section 08 — Direct Communication & CTA**: Formspree inquiry form + direct email (`serces19@gmail.com`), WhatsApp/Phone (`+591 60760338`), and LinkedIn.
+9. **Section 08 — Direct Communication & CTA**: Formspree inquiry form + direct email (`sergio@vectorescope.com`), WhatsApp/Phone (`+591 60760338`), and LinkedIn.

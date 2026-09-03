@@ -12,7 +12,7 @@ export default function Footer() {
             <span className="font-title text-xl font-bold text-white tracking-tight">Sergio Céspedes</span>
           </Link>
           <p className="text-xs text-slate-500 max-w-sm">
-            Cloud Architect, VFX Pipeline TD & Machine Learning Engineer. Specialized in AWS infrastructure, deep learning manifold audits, and high-throughput media pipelines.
+            Cloud Infrastructure for Visual AI
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export default function Footer() {
             <a href="https://www.linkedin.com/in/sergio-cespedes/" target="_blank" rel="noopener noreferrer" className="hover:text-cloud-blue transition-colors">
               LinkedIn
             </a>
-            <a href="mailto:serces19@gmail.com" className="hover:text-amber-400 transition-colors">
+            <a href="mailto:sergio@vectorescope.com" className="hover:text-amber-400 transition-colors">
               Email
             </a>
           </div>

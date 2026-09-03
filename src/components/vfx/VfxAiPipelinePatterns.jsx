@@ -22,12 +22,6 @@ export default function VfxAiPipelinePatterns() {
       {/* Conceptual Pipeline Flow Graphic (Stylized Node Graph) */}
       <div className="mb-14">
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-cloud-blue animate-pulse" />
-            <span className="mono-text text-xs uppercase tracking-wider text-cloud-light font-bold">
-              Conceptual End-to-End Node Flow
-            </span>
-          </div>
         </div>
 
         <VfxNodeFlow />
@@ -69,7 +63,7 @@ export default function VfxAiPipelinePatterns() {
                 : 'bg-[#101726] text-slate-400 hover:text-white hover:bg-[#151f33]'
             }`}
           >
-            03 / Autonomous Pipeline Agent
+            03 / Controlled AI Pipeline Agent
           </button>
         </div>
 
@@ -110,15 +104,11 @@ export default function VfxAiPipelinePatterns() {
             <div className="space-y-6">
               <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
                 <div className="lg:max-w-xl">
-                  <div className="flex items-center gap-2 text-xs mono-text text-amber-400 mb-2">
-                    <span>PATTERN:</span>
-                    <span className="font-bold">Griptape Nodes → AWS Deadline Cloud → Spot GPU Fleet → Asset</span>
-                  </div>
                   <h4 className="font-title text-2xl font-bold text-white mb-3">
                     Headless Orchestration Layer with Griptape & Deadline Cloud
                   </h4>
                   <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                    ComfyUI provides modular generative tensor math, while Griptape acts as the enterprise safety and orchestration harness. Shots submitted from the DCC are translated into headless execution batches, dispatched directly to <strong>AWS Deadline Cloud</strong> fleets with live step telemetry, wedge testing, and automatic retries.
+                    ComfyUI provides a modular execution layer for AI image and video workflows, while Griptape provides the orchestration layer for connecting AI models, production tools, and pipeline services. Shots submitted from the DCC are translated into headless execution batches, dispatched directly to <strong>AWS Deadline Cloud</strong> fleets with live step telemetry, wedge testing, and automatic retries.
                   </p>
                   <div className="flex flex-wrap gap-4 text-xs mono-text text-slate-400 pt-2 border-t border-white/[0.04]">
                     <span>• Execution: Headless API & Griptape Nodes</span>

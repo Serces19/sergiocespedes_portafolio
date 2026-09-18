@@ -4,13 +4,18 @@ This file tracks all completed tasks, in-progress activities, and future technic
 
 ---
 
-## 🚀 Active Roadmap: DINOv3 Article Embedded Iframe Bug Fix
+## 🚀 Active Roadmap: Markdown Engine & Article Formatting Overhaul
 
+- [x] **Markdown Tables Support (GFM)**
+  - [x] Installed and configured `remark-gfm`.
+  - [x] Implemented responsive table container (`overflow-x-auto`) with rounded borders and zebra striping for hardware comparison matrices.
+- [x] **LaTeX Math Formatting (KaTeX)**
+  - [x] Installed `remark-math`, `rehype-katex`, and bundled `katex/dist/katex.min.css`.
+  - [x] Standardized mathematical notation across English and Spanish blog variants for multi-scale hybrid loss functions ($\mathcal{L}_{\text{total}}$, $\mathcal{L}_{\text{SSIM}}$, $\mathcal{L}_{\text{LPIPS}}$, $\mathcal{L}_{\text{Laplacian}}$).
+  - [x] Replaced concatenated terms with clean bulleted lists to prevent formatting degradation.
 - [x] **Resolved Recursive SPA Iframe Bug in DINOv3 Article**
-  - [x] **Root Cause**: The markdown files (`dinov3_manifold.*.md`) contained an `<iframe>` pointing to `/assets/grafico_pca3d.html`. In a Single Page Application (SPA) environment with client-side routing, requests to HTML files or missing sub-paths are rewritten to `index.html`, causing the whole portfolio website to recursively load inside the iframe container.
-  - [x] **Solution**: Replaced the broken `<iframe>` with the official high-resolution cover image (`/assets/cover_manifold_dino.png`) across all language versions (`src/blogs/`, `public/blogs/`, and `blogs/`).
-  - [x] Synchronized thumbnail references in `Articles.jsx` and `Projects.jsx` to `/assets/cover_manifold_dino.png`.
-  - [x] Validated with `oxlint` (0 errors) and `vite build` (success).
+  - [x] Replaced broken `<iframe>` with official high-resolution cover image (`/assets/cover_manifold_dino.png`).
+  - [x] Synchronized thumbnail references in `Articles.jsx` and `Projects.jsx`.
 
 ---
 

@@ -31,13 +31,15 @@ En inferencia para video, la consistencia píxel-determinística es fundamental 
 
 Las funciones de pérdida L1 o MSE estándar tienden a generar resultados borrosos por regresión a la media. Para recuperar microdetalle y grano realista, formulé una función de pérdida híbrida multiescala:
 
-$$\mathcal{L}_{total} = \lambda_{1}\mathcal{L}_{1} + \lambda_{2}\mathcal{L}_{LPIPS} + \lambda_{3}\mathcal{L}_{Lap} + \lambda_{4}\mathcal{L}_{SSIM}$$
+$$
+\mathcal{L}_{\text{total}} = \lambda_{1}\mathcal{L}_{1} + \lambda_{2}\mathcal{L}_{\text{LPIPS}} + \lambda_{3}\mathcal{L}_{\text{Lap}} + \lambda_{4}\mathcal{L}_{\text{SSIM}}
+$$
 
 ### Desglose:
-1. **$\mathcal{L}_{1}$ Loss:** Asegura precisión fotométrica y de color global.
-2. **$\mathcal{L}_{SSIM}$:** Preserva la estructura local de contraste y luminancia.
-3. **$\mathcal{L}_{LPIPS}$:** Pérdida perceptual basada en redes profundas para capturar microtexturas visibles al ojo humano.
-4. **$\mathcal{L}_{Laplacian}$:** Penaliza la degradación de bordes en múltiples bandas de frecuencia, previniendo el aspecto lavado.
+- **$\mathcal{L}_{1}$ Loss:** Asegura precisión fotométrica y de color global.
+- **$\mathcal{L}_{\text{SSIM}}$:** Preserva la estructura local de contraste y luminancia.
+- **$\mathcal{L}_{\text{LPIPS}}$:** Pérdida perceptual basada en redes profundas para capturar microtexturas visibles al ojo humano.
+- **$\mathcal{L}_{\text{Laplacian}}$:** Penaliza la degradación de bordes en múltiples bandas de frecuencia, previniendo el aspecto lavado.
 
 ---
 

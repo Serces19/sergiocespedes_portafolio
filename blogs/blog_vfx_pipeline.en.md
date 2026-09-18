@@ -31,13 +31,15 @@ In video post-production inference, absolute pixel determinism is non-negotiable
 
 Standard L1 or Mean Squared Error (MSE) loss functions inherently regress toward the statistical mean, creating blurry edges and plastic-like skin textures. To recover photorealistic grain and structural boundaries, I formulated a multi-scale hybrid loss function:
 
-$$\mathcal{L}_{total} = \lambda_{1}\mathcal{L}_{1} + \lambda_{2}\mathcal{L}_{LPIPS} + \lambda_{3}\mathcal{L}_{Laplacian} + \lambda_{4}\mathcal{L}_{SSIM}$$
+$$
+\mathcal{L}_{\text{total}} = \lambda_{1}\mathcal{L}_{1} + \lambda_{2}\mathcal{L}_{\text{LPIPS}} + \lambda_{3}\mathcal{L}_{\text{Laplacian}} + \lambda_{4}\mathcal{L}_{\text{SSIM}}
+$$
 
 ### Term Breakdown:
-1. **$\mathcal{L}_{1}$ Loss:** Enforces global photometric and color accuracy.
-2. **$\mathcal{L}_{SSIM}$ (Structural Similarity):** Preserves luminance gradients and local contrast structure.
-3. **$\mathcal{L}_{LPIPS}$ (Perceptual Feature Loss):** Uses pretrained deep convolutional features to emulate human visual perception, capturing high-frequency micro-textures.
-4. **$\mathcal{L}_{Laplacian}$ (Laplacian Pyramid Loss):** Penalizes edge degradation across multiple frequency bands, preventing the soft, muddy look typical of standard neural matting.
+- **$\mathcal{L}_{1}$ Loss:** Enforces global photometric and color accuracy.
+- **$\mathcal{L}_{\text{SSIM}}$ (Structural Similarity):** Preserves luminance gradients and local contrast structure.
+- **$\mathcal{L}_{\text{LPIPS}}$ (Perceptual Feature Loss):** Uses pretrained deep convolutional features to emulate human visual perception, capturing high-frequency micro-textures.
+- **$\mathcal{L}_{\text{Laplacian}}$ (Laplacian Pyramid Loss):** Penalizes edge degradation across multiple frequency bands, preventing the soft, muddy look typical of standard neural matting.
 
 ---
 

@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import { ArrowLeft, Globe } from 'lucide-react';
 import Contact from '../components/Contact';
 
@@ -153,8 +157,36 @@ export default function ArticleDetail() {
               </div>
             ) : (
               <Markdown 
-                rehypePlugins={[rehypeRaw]}
+                remarkPlugins={[remarkGfm, remarkMath]}
+                rehypePlugins={[rehypeRaw, rehypeKatex]}
                 components={{
+                  table: ({ children, ...props }) => (
+                    <div className="overflow-x-auto my-8 rounded-2xl border border-slate-200/90 shadow-sm bg-white not-prose">
+                      <table className="w-full text-left border-collapse text-xs sm:text-sm" {...props}>
+                        {children}
+                      </table>
+                    </div>
+                  ),
+                  thead: ({ children, ...props }) => (
+                    <thead className="bg-slate-100/90 text-slate-900 border-b border-slate-200" {...props}>
+                      {children}
+                    </thead>
+                  ),
+                  th: ({ children, ...props }) => (
+                    <th className="px-4 py-3.5 font-bold text-slate-900 text-[11px] mono-text uppercase tracking-wider whitespace-nowrap" {...props}>
+                      {children}
+                    </th>
+                  ),
+                  td: ({ children, ...props }) => (
+                    <td className="px-4 py-3.5 border-b border-slate-100 text-slate-700 leading-relaxed align-top" {...props}>
+                      {children}
+                    </td>
+                  ),
+                  tr: ({ children, ...props }) => (
+                    <tr className="hover:bg-slate-50/75 transition-colors odd:bg-white even:bg-slate-50/40" {...props}>
+                      {children}
+                    </tr>
+                  ),
                   img: ({ ...props }) => {
                     let src = props.src || '';
                     if (src && !src.startsWith('/') && !src.startsWith('http')) {

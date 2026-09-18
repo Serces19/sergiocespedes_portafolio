@@ -9,7 +9,7 @@ export default function Projects() {
       id: 'dinov3_manifold',
       title: 'DINOv3 Latent Space Geometry & Manifold Audit',
       description: 'Deep dive into self-supervised Vision Transformers (DINOv3). Auditing how high-dimensional feature spaces map non-linear manifolds such as human facial aging and subtle image attributes.',
-      image: '/assets/2.png',
+      image: '/assets/cover_manifold_dino.png',
       categories: ['cv-dl'],
       link: '/blog/dinov3_manifold',
       linkText: 'Read Case Study',

@@ -2,9 +2,7 @@
 
 <p class="subtitle">Exploring how self-supervised Vision Transformers (DINOv3) map the geometry of facial age and non-linear feature manifolds.</p>
 
-<div class="iframe-container" style="width: 100%; height: 500px; margin: 2rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
-    <iframe src="/assets/grafico_pca3d.html" style="width: 100%; height: 100%; border: none;"></iframe>
-</div>
+<img src="/assets/cover_manifold_dino.png" alt="DINOv3 Latent Space Geometry & Manifold Trajectory" class="blog-image">
 
 The most Zizekian concept in Deep Learning is, without a doubt, the **Manifold**.
 

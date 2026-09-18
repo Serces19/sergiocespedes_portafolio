@@ -35,7 +35,7 @@ export default function Articles() {
       slug: 'dinov3_manifold',
       title: 'The Manifold and the Ideology of the Real: DINOv3 Latent Space Geometry',
       description: 'Exploring how self-supervised Vision Transformers (DINOv3) map the geometry of facial age and non-linear feature manifolds.',
-      image: '/assets/2.png',
+      image: '/assets/cover_manifold_dino.png',
       borderColor: 'border-blue-500/30',
       hoverColor: 'group-hover:text-blue-600',
       linkColor: 'text-blue-600 hover:text-blue-700'

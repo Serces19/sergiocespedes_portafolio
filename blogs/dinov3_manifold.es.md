@@ -2,9 +2,7 @@
 
 <p class="subtitle">Explorando cómo los Vision Transformers autosupervisados (DINOv3) mapean la geometría de la edad y manifolds de características no lineales.</p>
 
-<div class="iframe-container" style="width: 100%; height: 500px; margin: 2rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);">
-    <iframe src="/assets/grafico_pca3d.html" style="width: 100%; height: 100%; border: none;"></iframe>
-</div>
+<img src="/assets/cover_manifold_dino.png" alt="Geometría Latente y Manifold de DINOv3" class="blog-image">
 
 El concepto más "zizekiano" en Deep Learning es, sin duda, el **Manifold**.
 
